@@ -30,6 +30,12 @@
                 "scopeName": "source.impex",
                 "path": "./syntaxes/impex.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "impex",
+                "path": "./snippets/snippets.json"
+            }
         ]
     },
     "devDependencies": {

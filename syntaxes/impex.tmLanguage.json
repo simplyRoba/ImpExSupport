@@ -23,12 +23,10 @@
 			"name": "string.quoted.double.impex",
 			"begin": "\"",
 			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.impex",
-					"match": "\\\\."
-				}
-			]
+			"patterns": [{
+                "name": "constant.character.escape.impex",
+                "match": "\\\\."
+			}]
 		}
 	},
 	"scopeName": "source.impex"

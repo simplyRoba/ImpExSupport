@@ -1,0 +1,26 @@
+{
+    "name": "impex-support",
+    "displayName": "ImpEx Support",
+    "description": "Support for the SAP Hybris import export language ImpEx",
+    "version": "0.0.1",
+    "publisher": "simplyRoba",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "impex",
+            "aliases": ["ImpEx", "impex"],
+            "extensions": [".impex"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "impex",
+            "scopeName": "",
+            "path": "./syntaxes/impex.tmLanguage.json"
+        }]
+    }
+}

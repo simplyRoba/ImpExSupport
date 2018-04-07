@@ -4,6 +4,9 @@ All notable changes to the "impex-support" extension will be documented in this 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
+- snippets
+- column highlighting
+- better syntax support
 
 ## [0.0.1] - 2018-04-07
 ### Added

@@ -5,5 +5,5 @@ INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];reference(code);att
 ;;testRow1;13534;"eins";item,item,item;
 
 # comment
-remove Item;code(uid);attribute;
-;testRow2;'zwei';
+remove Item;code(uid);attribute;attribute2;
+;testRow2;'zwei';false;

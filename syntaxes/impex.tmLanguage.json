@@ -26,10 +26,16 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.impex",
-				"match": "(?i)^(INSERT_UPDATE|INSERT|UPDATE|REMOVE)"
-            }]
+			"patterns": [
+                {
+                    "name": "keyword.control.impex",
+                    "match": "(?i)^(INSERT_UPDATE|INSERT|UPDATE|REMOVE)"
+                },
+                {
+                    "name": "keyword.other.impex",
+                    "match": "(?i)(true|false)"
+                }
+            ]
 		},
 		"strings": {
 			"patterns": [{

@@ -1,0 +1,22 @@
+{
+    "insert": {
+        "prefix": "ins",
+        "body": "INSERT ",
+        "description": ""
+    },
+    "update": {
+        "prefix": "up",
+        "body": "",
+        "description": ""
+    },
+    "insert_update": {
+        "prefix": "insu",
+        "body": "",
+        "description": ""
+    },
+    "remove": {
+        "prefix": "re",
+        "body": "",
+        "description": ""
+    }
+}

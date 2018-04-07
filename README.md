@@ -1,6 +1,6 @@
 # ImpExSupport
 
-Languages support for the SAP [y] Hybris import export language ImpEx.
+Languages support for the SAP [y] Hybris import export language ImpEx. (unofficial)
 
 ## Features
 

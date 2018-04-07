@@ -2,21 +2,21 @@
     "insert": {
         "prefix": "ins",
         "body": "INSERT ",
-        "description": "Insert statement"
+        "description": "INSERT statement"
     },
     "update": {
         "prefix": "up",
         "body": "UPDATE",
-        "description": "Update statement"
+        "description": "UPDATE statement"
     },
     "insert_update": {
         "prefix": "insu",
         "body": "INSERT_UPDATE",
-        "description": "Insert_update statement"
+        "description": "INSERT_UPDATE statement"
     },
     "remove": {
         "prefix": "re",
         "body": "REMOVE",
-        "description": "Remove statement"
+        "description": "REMOVE statement"
     }
 }

@@ -1,10 +1,12 @@
 # ImpExSupport
 
-Languages support for the SAP [y] Hybris import export language ImpEx. (unofficial)
+Languages support for the SAP [y] Hybris import export language ImpEx.
+
+**_This softawre is not released by or is connected in any way with SAP_**
 
 ## Features
 
-Very rudimental syntax higlighting.
+- very rudimental syntax higlighting.
 
 ## Requirements
 

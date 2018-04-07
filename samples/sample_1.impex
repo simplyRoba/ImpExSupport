@@ -1,3 +1,4 @@
+#% language.set();
 $catalog=TestCatalog
 $catalogVersion=catalogVersion(Catalog.uid($catalog), CatalogVersion.version(Staged))
 
@@ -6,4 +7,4 @@ INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];reference(code);att
 
 # comment
 remove Item;code(uid);attribute;attribute2;
-;testRow2;'zwei';false;
+;testremoveRohatruew;'zwei';false;

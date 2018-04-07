@@ -28,12 +28,12 @@
 		"keywords": {
 			"patterns": [
                 {
-                    "name": "keyword.control.impex",
-                    "match": "(?i)^(INSERT_UPDATE|INSERT|UPDATE|REMOVE)"
+                    "name": "keyword.control.header.impex",
+                    "match": "(?i)^(INSERT_UPDATE|INSERT|UPDATE|REMOVE)\\s+"
                 },
                 {
-                    "name": "keyword.other.impex",
-                    "match": "(?i)(true|false)"
+                    "name": "constant.language.impex",
+                    "match": "(?i)\\b(true|false)\\b"
                 }
             ]
 		},
@@ -86,12 +86,8 @@
         "constant": {
             "patterns": [
                 {
-                    "match": "(;|,)([0-9]+)(;|,)",
-                    "captures": {
-                        "2": {
-                            "name": "keyword.control.impex"
-                        }
-                    }
+                    "name": "constant.numeric",
+                    "match": "\\b([0-9]+)\\b"
                 }
             ]
         }

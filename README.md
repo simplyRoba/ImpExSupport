@@ -23,3 +23,7 @@ No known issues.
 ## Release Notes
 
 See: [Changelog](CHANGELOG.md)
+
+## License
+
+[MIT](LICENSE)

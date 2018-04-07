@@ -16,7 +16,8 @@
                 "id": "impex",
                 "aliases": [
                     "ImpEx",
-                    "impex"
+                    "impex",
+                    "Impex"
                 ],
                 "extensions": [
                     ".impex"
@@ -27,7 +28,7 @@
         "grammars": [
             {
                 "language": "impex",
-                "scopeName": "source.impex",
+                "scopeName": "text.tabular.impex",
                 "path": "./syntaxes/impex.tmLanguage.json"
             }
         ],

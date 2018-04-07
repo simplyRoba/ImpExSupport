@@ -10,24 +10,85 @@
 		},
 		{
 			"include": "#strings"
-		}
+        },
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#declaration"
+        },
+        {
+            "include": "#punctuation"
+        },
+        {
+            "include": "#constant"
+        }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.impex",
-				"match": "\\b(INSERT|UPDATE|INSERT_UPDATE|REMOVE)\\b"
-			}]
+				"match": "(?i)^(INSERT_UPDATE|INSERT|UPDATE|REMOVE)"
+            }]
 		},
 		"strings": {
-			"name": "string.quoted.double.impex",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [{
-                "name": "constant.character.escape.impex",
-                "match": "\\\\."
-			}]
-		}
+                "name": "string.quoted.double.impex",
+			    "begin": "\"",
+			    "end": "\"",
+			    "patterns": [{
+                    "name": "constant.character.escape.impex",
+                    "match": "\\\\."
+			    }]
+            },
+            {
+                "name" : "string.quoted.single.impex",
+                "begin": "'",
+                "end": "'",
+                "patterns": [{
+                    "name": "constant.character.escape.impex",
+                    "match": "\\\\."
+                }]
+            }]
+        },
+        "comment": {
+            "patterns": [{
+                "name": "comment.line.impex",
+                "match": "#.+$"
+            }]
+        },
+        "declaration": {
+            "patterns": [
+                {
+                    "name": "variable.name.impex",
+                    "match": "\\$[a-zA-Z0-9]+"
+                }
+            ]
+        },
+        "punctuation": {
+			"patterns": [
+				{
+					"name": "punctuation.separator.impex",
+					"match": ";"
+                },
+                {
+                    "name": "punctuation.separator.impex",
+                    "match": ","
+                }
+			]
+        },
+        "constant": {
+            "patterns": [
+                {
+                    "match": "(;|,)([0-9]+)(;|,)",
+                    "captures": {
+                        "2": {
+                            "name": "keyword.control.impex"
+                        }
+                    }
+                }
+            ]
+        }
 	},
-	"scopeName": "source.impex"
+	"scopeName": "text.tabular.impex"
 }

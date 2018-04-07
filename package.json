@@ -4,6 +4,11 @@
     "description": "Support for the SAP Hybris import export language ImpEx",
     "version": "0.0.1",
     "publisher": "simplyRoba",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/simplyRoba/ImpExSupport"
+    },
+    "license": "MIT",
     "engines": {
         "vscode": "^1.22.0"
     },

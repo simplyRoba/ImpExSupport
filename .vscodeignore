@@ -2,4 +2,5 @@
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
-samples
+samples/**
+README.1.md

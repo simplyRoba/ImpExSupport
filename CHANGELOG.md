@@ -4,4 +4,7 @@ All notable changes to the "impex-support" extension will be documented in this 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
-- Initial release
+
+## [0.0.1] - 2018-04-07
+### Added
+- rudimental syntax higlighting for string some keywords and variables

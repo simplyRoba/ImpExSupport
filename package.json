@@ -1,7 +1,7 @@
 {
     "name": "impex-support",
     "displayName": "ImpEx Support",
-    "description": "Support for the SAP Hybris import export language ImpEx (unofficial)",
+    "description": "Languages support for the SAP Hybris import/export language ImpEx. (unofficial)",
     "keywords": [
         "SAP",
         "hybris",

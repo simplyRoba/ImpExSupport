@@ -6,17 +6,17 @@
     },
     "update": {
         "prefix": "up",
-        "body": "UPDATE",
+        "body": "UPDATE ",
         "description": "UPDATE statement"
     },
     "insert_update": {
         "prefix": "insu",
-        "body": "INSERT_UPDATE",
+        "body": "INSERT_UPDATE ",
         "description": "INSERT_UPDATE statement"
     },
     "remove": {
         "prefix": "re",
-        "body": "REMOVE",
+        "body": "REMOVE ",
         "description": "REMOVE statement"
     }
 }

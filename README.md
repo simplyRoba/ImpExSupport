@@ -10,6 +10,14 @@ Very rudimental syntax higlighting.
 
 No requirements.
 
+## Extension Settings
+
+No settings.
+
+## Known Issues
+
+No known issues.
+
 ## Release Notes
 
 See: [Changelog](CHANGELOG.md)

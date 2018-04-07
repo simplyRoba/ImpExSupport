@@ -1,22 +1,32 @@
 {
-    "insert": {
+    "insert-keyword": {
         "prefix": "ins",
-        "body": "INSERT ",
-        "description": "INSERT statement"
+        "body": "INSERT ${1:Item};$0",
+        "description": "INSERT keyword"
     },
-    "update": {
+    "update-keyword": {
         "prefix": "up",
-        "body": "UPDATE ",
-        "description": "UPDATE statement"
+        "body": "UPDATE ${1:Item};$0",
+        "description": "UPDATE keyword"
     },
-    "insert_update": {
+    "insert_update-keyword": {
         "prefix": "insu",
-        "body": "INSERT_UPDATE ",
-        "description": "INSERT_UPDATE statement"
+        "body": "INSERT_UPDATE ${1:Item};$0",
+        "description": "INSERT_UPDATE keyword"
     },
-    "remove": {
+    "remove-keyword": {
         "prefix": "re",
-        "body": "REMOVE ",
-        "description": "REMOVE statement"
+        "body": "REMOVE ${1:Item};$0",
+        "description": "REMOVE keyword"
+    },
+    "unique-modifier": {
+        "prefix": "unq",
+        "body": "[unique=${1:true}]$0",
+        "description": "set [unique=(true|false)] modifier"
+    },
+    "lang-modifier": {
+        "prefix": "lang",
+        "body": "[lang=$0]$1",
+        "description": "set [lang=XX] modifier"
     }
 }

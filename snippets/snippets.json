@@ -10,7 +10,7 @@
         "description": "UPDATE keyword"
     },
     "insert_update-keyword": {
-        "prefix": "insu",
+        "prefix": "insup",
         "body": "INSERT_UPDATE ${1:Item};$0",
         "description": "INSERT_UPDATE keyword"
     },

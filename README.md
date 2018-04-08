@@ -6,7 +6,8 @@ Languages support for the SAP Hybris import/export language ImpEx.
 
 ## Features
 
-- very rudimental syntax higlighting.
+* rudimental syntax higlighting.
+* some [snippets](docs/Snippets.md) for header keywords and modifier
 
 ## Requirements
 
@@ -19,6 +20,7 @@ No settings.
 ## Known Issues
 
 No known issues.
+If you find one, feel free to open an issue on [GitHub](https://github.com/simplyRoba/ImpExSupport/issues)
 
 ## Release Notes
 

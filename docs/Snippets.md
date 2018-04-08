@@ -18,4 +18,4 @@ Key|Snippet
 ---|-------
 unq|`[unique=true]`
 lang|`[lang=XX]`
-mode|`[mode=(append|replace|remove)]`
+mode|`[mode=(append,replace,remove)]`

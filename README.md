@@ -2,7 +2,7 @@
 
 Languages support for the SAP Hybris import/export language ImpEx.
 
-**_This softawre is not released by or is connected in any way with SAP_**
+**_This softawre is not released by or is connected in any way with SAP. SAP Hybris and the [y]-Logo are registered tradmarks owned by SAP._**
 
 ## Features
 

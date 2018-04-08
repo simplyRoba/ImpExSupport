@@ -8,7 +8,7 @@
         "impex",
         "eCommerce"
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "simplyRoba",
     "repository": {
         "type": "git",
@@ -16,7 +16,7 @@
     },
     "license": "MIT",
     "qna": "false",
-    "icon": "./images/icon.png",
+    "icon": "images/icon.png",
     "galleryBanner": {
         "color": "#444444",
         "theme": "dark"

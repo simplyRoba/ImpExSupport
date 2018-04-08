@@ -1,0 +1,37 @@
+{
+    "insert-keyword": {
+        "prefix": "ins",
+        "body": "INSERT ${1:Item};$0",
+        "description": "INSERT keyword"
+    },
+    "update-keyword": {
+        "prefix": "up",
+        "body": "UPDATE ${1:Item};$0",
+        "description": "UPDATE keyword"
+    },
+    "insert_update-keyword": {
+        "prefix": "insup",
+        "body": "INSERT_UPDATE ${1:Item};$0",
+        "description": "INSERT_UPDATE keyword"
+    },
+    "remove-keyword": {
+        "prefix": "re",
+        "body": "REMOVE ${1:Item};$0",
+        "description": "REMOVE keyword"
+    },
+    "unique-modifier": {
+        "prefix": "unq",
+        "body": "[unique=${1:true}]$0",
+        "description": "set [unique=true] modifier"
+    },
+    "lang-modifier": {
+        "prefix": "lang",
+        "body": "[lang=$0]$1",
+        "description": "set [lang=(isocode)] modifier"
+    },
+    "mode-modifier": {
+        "prefix": "mode",
+        "body": "[mode=${1|append,replace,remove|}]$0",
+        "description": "set [mode=(append|replace|remove)] modifier"
+    }
+}

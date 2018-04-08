@@ -1,19 +1,32 @@
 {
     "name": "impex-support",
     "displayName": "ImpEx Support",
-    "description": "Support for the SAP Hybris import export language ImpEx",
-    "version": "0.0.1",
+    "description": "Languages support for the SAP Hybris import/export language ImpEx. (unofficial)",
+    "keywords": [
+        "SAP",
+        "hybris",
+        "impex",
+        "eCommerce"
+    ],
+    "version": "0.0.2",
     "publisher": "simplyRoba",
     "repository": {
         "type": "git",
         "url": "https://github.com/simplyRoba/ImpExSupport"
     },
     "license": "MIT",
+    "qna": "false",
+    "icon": "./images/icon.png",
+    "galleryBanner": {
+        "color": "#444444",
+        "theme": "dark"
+    },
     "engines": {
         "vscode": "^1.22.0"
     },
     "categories": [
-        "Languages"
+        "Languages",
+        "Snippets"
     ],
     "contributes": {
         "languages": [
@@ -43,6 +56,9 @@
                 "path": "./snippets/snippets.json"
             }
         ]
+    },
+    "dependencies": {
+
     },
     "devDependencies": {
         "typescript": "^2.8.1",

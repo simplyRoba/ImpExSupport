@@ -22,11 +22,16 @@
     "unique-modifier": {
         "prefix": "unq",
         "body": "[unique=${1:true}]$0",
-        "description": "set [unique=(true|false)] modifier"
+        "description": "set [unique=true] modifier"
     },
     "lang-modifier": {
         "prefix": "lang",
         "body": "[lang=$0]$1",
-        "description": "set [lang=XX] modifier"
+        "description": "set [lang=(isocode)] modifier"
+    },
+    "mode-modifier": {
+        "prefix": "mode",
+        "body": "[mode=${1|append,replace,remove|}]$0",
+        "description": "set [mode=(append|replace|remove)] modifier"
     }
 }

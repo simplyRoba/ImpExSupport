@@ -1,5 +1,6 @@
 
-import {ExtensionContext} from 'vscode';
+import { ExtensionContext } from 'vscode';
+import { ColumnHighlighter } from "./editor/ColumnHighlighter";
 
 
 // this method is called when your extension is activated. activation is
@@ -10,12 +11,9 @@ export function activate(ctx: ExtensionContext) {
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "ImpEx Support" is now active!');
 
-    // create a new word counter
-    //let wordCounter = new WordCounter();
-    //let controller = new WordCounterController(wordCounter);
+    let columnHighlighter = new ColumnHighlighter();
 
     // add to a list of disposables which are disposed when this extension
     // is deactivated again.
-    //ctx.subscriptions.push(controller);
-    //ctx.subscriptions.push(wordCounter);
+    ctx.subscriptions.push(columnHighlighter);
 }

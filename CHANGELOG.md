@@ -1,9 +1,5 @@
 # Change Log
 
-All notable changes to the "impex-support" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
 ## [Unreleased]
 
 - snippets
@@ -15,3 +11,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 
 - rudimental syntax higlighting for string some keywords and variables
+
+---
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.

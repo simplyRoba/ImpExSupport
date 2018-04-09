@@ -6,7 +6,7 @@ Languages support for the SAP Hybris import/export language ImpEx.
 
 ## Features
 
-* rudimental syntax higlighting.
+* rudimental syntax highlighting.
 * some [snippets](docs/Snippets.md) for header keywords and modifier
 
 ## Requirements

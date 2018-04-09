@@ -1,5 +1,5 @@
 
-import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine } from "vscode";
+import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine } from 'vscode';
 
 export class ColumnHighlighter implements Disposable {
 
@@ -7,28 +7,28 @@ export class ColumnHighlighter implements Disposable {
 
     constructor () {
         // reigster event on initialize
-        window.onDidChangeTextEditorSelection(this._selectionChanged, this, this._subscriptions)
+        window.onDidChangeTextEditorSelection(this._selectionChanged, this, this._subscriptions);
     }
 
     private _selectionChanged(event: TextEditorSelectionChangeEvent) {
-        //The primary selection is always at index 0.
+        // The primary selection is always at index 0.
         let primarySelection: Selection = event.selections[0];
 
-        if (this._isValidSelection(primarySelection)) { 
+        if (this._isValidSelection(primarySelection)) {
 
             let lineNumber: number = primarySelection.active.line;
             let line: TextLine = event.textEditor.document.lineAt(lineNumber);
 
-            if(this._isValidLine(line)) {
-                
+            if (this._isValidLine(line)) {
+
                 // TODO mark cell depend on is header pr row  selected
                 window.showInformationMessage(line.text);
             }
-        } 
+        }
     }
 
     private _isValidSelection(selection: Selection): boolean {
-        // TODO check for 
+        // TODO check for
         // only cursor and no selection
         // is impex file
         return true;
@@ -57,5 +57,4 @@ class ImpexRow implements TextLine {
 }
 
 class ImpexHeader {
-    
 }

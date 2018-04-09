@@ -1,6 +1,6 @@
 
 import { ExtensionContext } from 'vscode';
-import { ColumnHighlighter } from "./editor/ColumnHighlighter";
+import { ColumnHighlighter } from './editor/ColumnHighlighter';
 
 
 // this method is called when your extension is activated. activation is

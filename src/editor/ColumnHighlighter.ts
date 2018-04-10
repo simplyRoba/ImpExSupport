@@ -1,5 +1,6 @@
 
-import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine } from 'vscode';
+import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine } from "vscode";
+import { isHeaderLine, isDataLine } from "../ImpexUtil";
 
 export class ColumnHighlighter implements Disposable {
 
@@ -21,7 +22,7 @@ export class ColumnHighlighter implements Disposable {
 
             if (this._isValidLine(line)) {
 
-                // TODO mark cell depend on is header pr row  selected
+                // TODO mark cell depend on is header or row selected
                 window.showInformationMessage(line.text);
             }
         }
@@ -35,10 +36,11 @@ export class ColumnHighlighter implements Disposable {
     }
 
     private _isValidLine(line: TextLine): boolean {
-        // TODO check for
-        // is header or row
-        return true;
+
+        return (isHeaderLine(line.text) || isDataLine(line.text));
     }
+
+    
 
     dispose() {
         this._subscriptions.forEach(sub => {
@@ -47,7 +49,7 @@ export class ColumnHighlighter implements Disposable {
     }
 }
 
-class ImpexRow implements TextLine {
+class ImpexData implements TextLine {
     lineNumber: number;
     text: string;
     range: Range;

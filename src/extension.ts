@@ -1,6 +1,6 @@
 
-import { ExtensionContext } from 'vscode';
-import { ColumnHighlighter } from './editor/ColumnHighlighter';
+import { ExtensionContext } from "vscode";
+import { ColumnHighlighter } from "./editor/ColumnHighlighter";
 
 
 // this method is called when your extension is activated. activation is
@@ -9,7 +9,7 @@ export function activate(ctx: ExtensionContext) {
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "ImpEx Support" is now active!');
+    console.log("Congratulations, your extension \"ImpEx Support\" is now active!");
 
     let columnHighlighter = new ColumnHighlighter();
 

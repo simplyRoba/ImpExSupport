@@ -2,8 +2,9 @@
 
 ## [Unreleased]
 
-* snippets
+* more snippets
 * column highlighting
+* multicursoer for a column
 * better syntax support
 
 ## [0.0.2] - 2018-04-08

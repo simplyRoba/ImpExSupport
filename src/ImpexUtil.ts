@@ -6,7 +6,7 @@ export function isHeaderLine(line: string): boolean {
      * Group 4 ((([;]+)([^;]+))+)                   matches ; and then everything except ; multiple times
      * Group 5 ([;]*)                               matches the trailing ; if exists
      */
-    return /^(INSERT|UPDATE|REMOVE|INSERT_UPDATE)([ ]+)([a-zA-Z]+)((([;]+)([^;]+))+)([;]*)$/g.test(line);
+    return /^(INSERT|UPDATE|REMOVE|INSERT_UPDATE)([ ]+)([a-z]+)((([;]+)([^;]+))+)([;]*)$/gi.test(line);
 }
 
 export function isDataLine(line: string): boolean {

@@ -18,29 +18,24 @@ export class ColumnHighlighter implements Disposable {
     private selectionChanged(event: TextEditorSelectionChangeEvent) {
         // The primary selection is always at index 0.
         let primarySelection: Selection = event.selections[0];
+        let editor: TextEditor = event.textEditor;
+        let document: TextDocument = editor.document;
 
-        if (this.isValidSelection(primarySelection)) {
+        if (this.isValidSelection(primarySelection, document)) {
             let lineNumber: number = primarySelection.active.line;
-            let editor: TextEditor = event.textEditor;
-            let document: TextDocument = editor.document;
             let line: TextLine = document.lineAt(lineNumber);
 
             if (isDataLine(line.text)) {
 
-                //window.showInformationMessage(line.text);
                 let header: TextLine = this.findHeaderFor(line, document);
-                //window.showInformationMessage(header.text);
-
                 let columnIndex: number = this.findColumnIndexAtPosition(primarySelection.active, document);
-                //window.showInformationMessage(columnIndex.toString());
-
                 let headerColumnRange: Range = this.findColumnRangeAtLine(columnIndex, header);
-                
+
                 editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
             } else {
                 // remove decoration
                 let zeroRange: Range =  new Range(
-                    new Position(line.lineNumber, 0), 
+                    new Position(line.lineNumber, 0),
                     new Position(line.lineNumber, 0)
                 );
                 editor.setDecorations(columnHighlighterDecoration , [zeroRange]);
@@ -63,12 +58,12 @@ export class ColumnHighlighter implements Disposable {
         let endPosition: number = startPosition + columns[columnIndex].length;
 
         return new Range(
-            new Position(line.lineNumber, startPosition), 
+            new Position(line.lineNumber, startPosition),
             new Position(line.lineNumber, endPosition)
         );
     }
 
-    // Zero based index
+    // returns the column zero-based index at the line at the given postion
     private findColumnIndexAtPosition(position: Position, doc: TextDocument): number {
         let line: TextLine = doc.lineAt(position.line);
         let columns: string[] = line.text.split(";");
@@ -84,8 +79,9 @@ export class ColumnHighlighter implements Disposable {
             }
             lengthSum = newLengthSum;
         }
-        // TODO should not be possible maybe use function without end
-        return null;
+
+        // will never be hit
+        return 0;
     }
 
     private findHeaderFor(line: TextLine, doc: TextDocument): TextLine {
@@ -101,15 +97,19 @@ export class ColumnHighlighter implements Disposable {
         return null;
     }
 
-    private isValidSelection(selection: Selection): boolean {
-        // TODO check for
-        // only cursor and no selection
-        // is impex file
-        return true;
+    private isValidSelection(selection: Selection, doc: TextDocument): boolean {
+        if (doc.languageId === "impex") {
+            // if anchor and active in selection are the same its just the cursor and no selection
+            if (selection.active.isEqual(selection.anchor)) {
+                return true;
+            }
+        }
+        return false;
     }
 
+    // check if its a valid impex line
     private isValidLine(line: TextLine): boolean {
-
+        // TODO check if there is a header above data line if its a data line
         return (isHeaderLine(line.text) || isDataLine(line.text));
     }
 

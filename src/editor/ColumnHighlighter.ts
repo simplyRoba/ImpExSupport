@@ -20,7 +20,6 @@ export class ColumnHighlighter implements Disposable {
         let primarySelection: Selection = event.selections[0];
 
         if (this.isValidSelection(primarySelection)) {
-
             let lineNumber: number = primarySelection.active.line;
             let editor: TextEditor = event.textEditor;
             let document: TextDocument = editor.document;
@@ -38,6 +37,13 @@ export class ColumnHighlighter implements Disposable {
                 let headerColumnRange: Range = this.findColumnRangeAtLine(columnIndex, header);
                 
                 editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
+            } else {
+                // remove decoration
+                let zeroRange: Range =  new Range(
+                    new Position(line.lineNumber, 0), 
+                    new Position(line.lineNumber, 0)
+                );
+                editor.setDecorations(columnHighlighterDecoration , [zeroRange]);
             }
         }
     }
@@ -112,16 +118,4 @@ export class ColumnHighlighter implements Disposable {
             sub.dispose();
         });
     }
-}
-
-class ImpexData implements TextLine {
-    lineNumber: number;
-    text: string;
-    range: Range;
-    rangeIncludingLineBreak: Range;
-    firstNonWhitespaceCharacterIndex: number;
-    isEmptyOrWhitespace: boolean;
-}
-
-class ImpexHeader {
 }

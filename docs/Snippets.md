@@ -19,4 +19,5 @@ Key|Snippet
 ---|-------
 unq|`[unique=true]`
 lang|`[lang=XX]`
+def|`[default=XX]`
 mode|`[mode=(append,replace,remove)]`

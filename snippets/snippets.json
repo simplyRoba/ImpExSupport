@@ -29,6 +29,11 @@
         "body": "[lang=$0]$1",
         "description": "set [lang=(isocode)] modifier"
     },
+    "default-modifier": {
+        "prefix": "def",
+        "body": "[default=$0]$1",
+        "description": "set [default=XX] modifier"
+    },
     "mode-modifier": {
         "prefix": "mode",
         "body": "[mode=${1|append,replace,remove|}]$0",

@@ -28,6 +28,10 @@
         "Languages",
         "Snippets"
     ],
+    "activationEvents": [
+        "onLanguage:impex"
+    ],
+    "main": "./out/src/Extension",
     "contributes": {
         "languages": [
             {
@@ -55,15 +59,35 @@
                 "language": "impex",
                 "path": "./snippets/snippets.json"
             }
+        ],
+        "configuration": [
+            {
+                "title": "ImpEx configuration",
+                "properties": {
+                    "impex.editor.columnHighlighting.enabled": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Enables the column hoghlighting in impex files",
+                        "scope": "window"
+                    }
+                }
+            }
         ]
     },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test",
+        "lint": "node ./node_modules/tslint/bin/tslint ./src/*.ts ./src/**/*.ts ./test/**/*.ts ./test/*.ts"
+    },
     "dependencies": {
-
+        "vscode": "^1.1.14"
     },
     "devDependencies": {
         "typescript": "^2.8.1",
         "mocha": "^5.0.5",
-        "vscode": "^1.1.14",
+        "tslint": "^5.9.1",
         "@types/node": "^9.6.2",
         "@types/mocha": "^5.0.0"
     }

@@ -1,8 +1,17 @@
 
-import { Position, Range } from "vscode";
+import { Position, Range, TextLine } from "vscode";
 import { ImpexLine } from "./ImpexLine";
+import { isDataLine } from "../ImpexUtil";
 
 export class ImpexDataLine extends ImpexLine {
+
+    constructor(textLine: TextLine) {
+        if (isDataLine(textLine.text)) {
+            super(textLine);
+        } else {
+            throw new Error("Passed line is not an impex data line");
+        }
+    }
 
     getColumns(): string[] {
         return this.text.split(";");

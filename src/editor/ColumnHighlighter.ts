@@ -1,5 +1,5 @@
 
-import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine, TextDocument, TextEditor, TextEditorDecorationType, DecorationOptions, DecorationRenderOptions, OverviewRulerLane, Position } from "vscode";
+import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine, TextDocument, TextEditor, TextEditorDecorationType, DecorationOptions, DecorationRenderOptions, OverviewRulerLane, Position, workspace, ConfigurationChangeEvent } from "vscode";
 import { isHeaderLine, isDataLine } from "../ImpexUtil";
 
 const columnHighlighterDecoration: TextEditorDecorationType = window.createTextEditorDecorationType({
@@ -8,41 +8,48 @@ const columnHighlighterDecoration: TextEditorDecorationType = window.createTextE
 
 export class ColumnHighlighter implements Disposable {
 
-    private _subscriptions: Disposable[] = [];
+    private subscriptions: Disposable[] = [];
+    private enabled: boolean = workspace.getConfiguration().get("impex.editor.columnHighlighting.enabled");
 
     constructor () {
         // reigster event on initialize
-        window.onDidChangeTextEditorSelection(this.selectionChanged, this, this._subscriptions);
+        window.onDidChangeTextEditorSelection(this.selectionChanged, this, this.subscriptions);
+        workspace.onDidChangeConfiguration(this.changeConfigProperty, this, this.subscriptions);
+    }
+
+    private changeConfigProperty(event: ConfigurationChangeEvent) {
+        // TODO handle configuration change with register/deregister event listener
+        if (event.affectsConfiguration("impex.editor.columnHighlighting.enabled")) {
+            this.enabled = workspace.getConfiguration().get("impex.editor.columnHighlighting.enabled");
+        }
     }
 
     private selectionChanged(event: TextEditorSelectionChangeEvent) {
-        // The primary selection is always at index 0.
-        let primarySelection: Selection = event.selections[0];
-        let editor: TextEditor = event.textEditor;
-        let document: TextDocument = editor.document;
+        if (this.enabled) {
+            // The primary selection is always at index 0.
+            let primarySelection: Selection = event.selections[0];
+            let editor: TextEditor = event.textEditor;
+            let document: TextDocument = editor.document;
 
-        if (this.isValidSelection(primarySelection, document)) {
-            let lineNumber: number = primarySelection.active.line;
-            let line: TextLine = document.lineAt(lineNumber);
+            if (this.isValidSelection(primarySelection, document)) {
+                let lineNumber: number = primarySelection.active.line;
+                let line: TextLine = document.lineAt(lineNumber);
 
-            if (isDataLine(line.text)) {
+                if (isDataLine(line.text)) {
 
-                let header: TextLine = this.findHeaderFor(line, document);
-                let columnIndex: number = this.findColumnIndexAtPosition(primarySelection.active, document);
-                let headerColumnRange: Range = this.findColumnRangeAtLine(columnIndex, header);
+                    let header: TextLine = this.findHeaderFor(line, document);
+                    let columnIndex: number = this.findColumnIndexAtPosition(primarySelection.active, document);
+                    let headerColumnRange: Range = this.findColumnRangeAtLine(columnIndex, header);
 
-                editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
-            } else {
-                // remove decoration
-                let zeroRange: Range =  new Range(
-                    new Position(line.lineNumber, 0),
-                    new Position(line.lineNumber, 0)
-                );
-                editor.setDecorations(columnHighlighterDecoration , [zeroRange]);
+                    editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
+                } else {
+                    this.resetDecorations(editor);
+                }
             }
         }
     }
 
+    // TODO exclude header keyword from range when first column
     private findColumnRangeAtLine(columnIndex: number, line: TextLine): Range {
         let columns: string[] = line.text.split(";");
 
@@ -113,8 +120,17 @@ export class ColumnHighlighter implements Disposable {
         return (isHeaderLine(line.text) || isDataLine(line.text));
     }
 
+    private resetDecorations(editor: TextEditor): void {
+        // remove decoration
+        let zeroRange: Range =  new Range(
+            new Position(0, 0),
+            new Position(0, 0)
+        );
+        editor.setDecorations(columnHighlighterDecoration , [zeroRange]);
+    }
+
     dispose() {
-        this._subscriptions.forEach(sub => {
+        this.subscriptions.forEach(sub => {
             sub.dispose();
         });
     }

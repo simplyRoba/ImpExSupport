@@ -59,6 +59,19 @@
                 "language": "impex",
                 "path": "./snippets/snippets.json"
             }
+        ],
+        "configuration": [
+            {
+                "title": "ImpEx configuration",
+                "properties": {
+                    "impex.editor.columnHighlighting.enabled": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Enables the column hoghlighting in impex files",
+                        "scope": "window"
+                    }
+                }
+            }
         ]
     },
     "scripts": {

@@ -45,6 +45,8 @@ export class ColumnHighlighter implements Disposable {
                 } else {
                     this.resetDecorations(editor);
                 }
+            } else {
+                this.resetDecorations(editor);
             }
         }
     }

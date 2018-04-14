@@ -5,6 +5,12 @@
 * column multicursor
 * data column highlighting
 
+## [0.x.x] - 2018-xx-xx
+
+## Fixed
+
+* remove column highlighting on selections
+
 ## [0.1.0] - 2018-04-14
 
 ### Added

@@ -3,12 +3,14 @@
 ## [Unreleased]
 
 * column multicursor
+* data column highlighting
 
-## [0.1.0] - 2018-04-xx
+## [0.1.0] - 2018-04-14
 
 ### Added
 
 * column highlighting on header (experimental) disabled by default - set `"impex.editor.columnHighlighting.enable": true` to enable
+* default modifier snippet
 
 ## [0.0.2] - 2018-04-08
 

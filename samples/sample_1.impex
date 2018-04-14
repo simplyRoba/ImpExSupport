@@ -12,3 +12,5 @@ INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];reference(code);att
 remove Item;code(uid);attribute;attribute2;
 ;testremoveRohatruew;'zwei';false;
 
+UPDATE Component;;;;;;er;
+;;;;;;;;

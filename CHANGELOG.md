@@ -10,6 +10,7 @@
 ## Fixed
 
 * remove column highlighting on selections
+* fixed issue where lines containing only semicolons was not recognized correctly
 
 ## [0.1.0] - 2018-04-14
 

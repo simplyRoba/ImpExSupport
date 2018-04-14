@@ -1,6 +1,10 @@
 
-import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine, TextDocument } from "vscode";
+import { window, Disposable, TextEditorSelectionChangeEvent, Range, Selection, TextLine, TextDocument, TextEditor, TextEditorDecorationType, DecorationOptions, DecorationRenderOptions, OverviewRulerLane, Position } from "vscode";
 import { isHeaderLine, isDataLine } from "../ImpexUtil";
+
+const columnHighlighterDecoration: TextEditorDecorationType = window.createTextEditorDecorationType({
+    backgroundColor: "rgba(0,255,0,0.2)"
+});
 
 export class ColumnHighlighter implements Disposable {
 
@@ -18,17 +22,45 @@ export class ColumnHighlighter implements Disposable {
         if (this.isValidSelection(primarySelection)) {
 
             let lineNumber: number = primarySelection.active.line;
-            let document: TextDocument = event.textEditor.document;
+            let editor: TextEditor = event.textEditor;
+            let document: TextDocument = editor.document;
             let line: TextLine = document.lineAt(lineNumber);
 
             if (isDataLine(line.text)) {
 
-                // TODO mark cell depend on is header or row selected
-                window.showInformationMessage(line.text);
+                //window.showInformationMessage(line.text);
                 let header: TextLine = this.findHeaderFor(line, document);
-                window.showInformationMessage(header.text);
+                //window.showInformationMessage(header.text);
+
+                let columnIndex: Number = this.findColumnIndexFor(primarySelection.active, document);
+                window.showInformationMessage(columnIndex.toString());
+
+                let headerColumnRange: Range = this.findColumnRangeForIndex(columnIndex);
+                editor.setDecorations(columnHighlighterDecoration , [header.range]);
             }
         }
+    }
+
+    private findColumnRangeForIndex(columnIndex: Number): Range {
+        return null;
+    }
+
+    // Zero based index
+    private findColumnIndexFor(position: Position, doc: TextDocument): Number {
+        let line: TextLine = doc.lineAt(position.line);
+        let columns: String[] = line.text.split(";");
+
+        let lengthSum: number = 0;
+        for (let i = 0; i < columns.length; i++) {
+            let newLengthSum: number = lengthSum + columns[i].length + 1; // add 1 to the length for the semicolon
+            if (lengthSum <= position.character &&
+                newLengthSum > position.character) {
+                    return i;
+            }
+            lengthSum = newLengthSum;
+        }
+        // TODO should not be possible maybe use function without end
+        return null;
     }
 
     private findHeaderFor(line: TextLine, doc: TextDocument): TextLine {

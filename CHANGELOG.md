@@ -8,7 +8,7 @@
 
 ### Added
 
-* column highlighting (experimental) disabled by default - set `"impex.editor.columnHighlighting.enable": true` to enable
+* column highlighting on header (experimental) disabled by default - set `"impex.editor.columnHighlighting.enable": true` to enable
 
 ## [0.0.2] - 2018-04-08
 

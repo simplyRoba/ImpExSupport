@@ -1,4 +1,5 @@
 # Snippets
+
 List of available snippets.
 
 ## Header

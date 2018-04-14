@@ -8,6 +8,7 @@ Languages support for the SAP Hybris import/export language ImpEx.
 
 * rudimental syntax highlighting.
 * some [snippets](docs/Snippets.md) for header keywords and modifier
+* column highlighting (experimental) disabled by default see[configuration](docs/Configuration.md#ColumnHighlighting) to enable it
 
 ## Requirements
 
@@ -15,7 +16,7 @@ No requirements.
 
 ## Extension Settings
 
-No settings.
+See: [Configuration](doc/Configuration.md)
 
 ## Known Issues
 

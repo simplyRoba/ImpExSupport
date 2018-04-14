@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
-* snippets
-* column highlighting
-* better syntax support
+* column multicursor
+
+## [0.1.0] - 2018-04-xx
+
+### Added
+
+* column highlighting (experimental) disabled by default - set `"impex.editor.columnHighlighting.enable": true` to enable
 
 ## [0.0.2] - 2018-04-08
 

@@ -12,7 +12,7 @@ export class ImpexHeaderLine extends ImpexLine {
             throw new Error("Passed line is not an impex header line");
         }
     }
-    
+
     // TODO remoce header keyword
     getColumns(): string[] {
         return this.text.split(";");

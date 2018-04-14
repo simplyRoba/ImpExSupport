@@ -20,14 +20,12 @@ export abstract class ImpexLine implements TextLine {
     }
 
     /**
-     * 
      * @abstract
-     * @returns {string[]} 
+     * @returns {string[]}
      * @memberof ImpexLine
      */
     abstract getColumns(): string[];
     /**
-     * 
      * @abstract
      * @param {number} position zero-based position somewhere in the column
      * @returns {number} zero-based index of the column
@@ -35,7 +33,6 @@ export abstract class ImpexLine implements TextLine {
      */
     abstract columnIndexOfPostion(position: number): number;
     /**
-     * 
      * @abstract
      * @param {number} columnIndex zero-based index of the column
      * @returns {Range} the range of the column at given index
@@ -43,7 +40,6 @@ export abstract class ImpexLine implements TextLine {
      */
     abstract rangeForColumnAtIndex(columnIndex: number): Range;
     /**
-     * 
      * @abstract
      * @param {number} position zero-based position somewhere in the column
      * @returns {Range} the range of the column at given position

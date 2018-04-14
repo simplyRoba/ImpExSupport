@@ -32,27 +32,46 @@ export class ColumnHighlighter implements Disposable {
                 let header: TextLine = this.findHeaderFor(line, document);
                 //window.showInformationMessage(header.text);
 
-                let columnIndex: Number = this.findColumnIndexFor(primarySelection.active, document);
-                window.showInformationMessage(columnIndex.toString());
+                let columnIndex: number = this.findColumnIndexAtPosition(primarySelection.active, document);
+                //window.showInformationMessage(columnIndex.toString());
 
-                let headerColumnRange: Range = this.findColumnRangeForIndex(columnIndex);
-                editor.setDecorations(columnHighlighterDecoration , [header.range]);
+                let headerColumnRange: Range = this.findColumnRangeAtLine(columnIndex, header);
+                
+                editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
             }
         }
     }
 
-    private findColumnRangeForIndex(columnIndex: Number): Range {
-        return null;
+    private findColumnRangeAtLine(columnIndex: number, line: TextLine): Range {
+        let columns: string[] = line.text.split(";");
+
+        let lengthSum: number = 0;
+        for (let i = 0; i < columnIndex ; i++) {
+            // sum up the length of all columns before the desired column to get start position
+            // add 1 to the length for the semicolon
+            lengthSum = lengthSum + columns[i].length + 1;
+        }
+        let startPosition: number = lengthSum;
+
+        // take the start position and add the length of the desired column to get end position
+        let endPosition: number = startPosition + columns[columnIndex].length;
+
+        return new Range(
+            new Position(line.lineNumber, startPosition), 
+            new Position(line.lineNumber, endPosition)
+        );
     }
 
     // Zero based index
-    private findColumnIndexFor(position: Position, doc: TextDocument): Number {
+    private findColumnIndexAtPosition(position: Position, doc: TextDocument): number {
         let line: TextLine = doc.lineAt(position.line);
-        let columns: String[] = line.text.split(";");
+        let columns: string[] = line.text.split(";");
 
         let lengthSum: number = 0;
         for (let i = 0; i < columns.length; i++) {
-            let newLengthSum: number = lengthSum + columns[i].length + 1; // add 1 to the length for the semicolon
+            // add 1 to the length for the semicolon
+            let newLengthSum: number = lengthSum + columns[i].length + 1;
+            // check if position is in this column
             if (lengthSum <= position.character &&
                 newLengthSum > position.character) {
                     return i;

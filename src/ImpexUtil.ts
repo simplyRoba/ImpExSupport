@@ -12,6 +12,7 @@ export function isHeaderLine(line: string): boolean {
 export function isDataLine(line: string): boolean {
     /* Group 1 ([a-zA-Z]+)?            matches the Itemtype if exists
      * Group 2 ((([;]+)([^;]+))+)      matches ; and then everything except ; multiple times
+     * Group 3 ([;]*)                  matches the trailing ; if exists
      */
     return /^([a-zA-Z]+)?((([;]+)([^;]+))+)([;]*)$/g.test(line);
 }

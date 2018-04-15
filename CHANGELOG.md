@@ -5,10 +5,11 @@
 * column multicursor
 * data column highlighting
 
-## [0.x.x] - 2018-xx-xx
+## [0.2.0] - 2018-04-15
 
 ## Added 
 
+* higlight the data lines whne clicking on a header column
 * highlight the next semicolon if possible on an empty column
 
 ## Fixed

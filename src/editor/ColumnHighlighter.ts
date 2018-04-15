@@ -83,12 +83,14 @@ export class ColumnHighlighter implements Disposable {
     }
 
     private findDataLinesFor(header: ImpexHeaderLine, doc: TextDocument): ImpexDataLine[] {
-        // start at the line below and go down till the the first no dataline is reached
+        // start at the line below and go down till the the next header or end of document is reached
         let dataLines: ImpexDataLine[] = [];
         for (let i = header.lineNumber + 1; i < doc.lineCount; i++) {
             let actualLine: TextLine = doc.lineAt(i);
             if (isDataLine(actualLine.text)) {
                 dataLines.push(new ImpexDataLine(actualLine));
+            } else if (isHeaderLine(actualLine.text)) {
+                break;
             }
         }
         if (dataLines.length > 0) {

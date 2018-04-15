@@ -45,7 +45,7 @@ export class ColumnHighlighter implements Disposable {
         }
     }
 
-    private setDecorations(line: TextLine, cursor: Position, editor: TextEditor):void {
+    private setDecorations(line: TextLine, cursor: Position, editor: TextEditor): void {
         if (isDataLine(line.text)) {
             let data: ImpexDataLine = new ImpexDataLine(line);
             let header: ImpexHeaderLine = this.findHeaderFor(data, editor.document);

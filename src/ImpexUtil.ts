@@ -24,7 +24,7 @@ export function isHeaderLine(line: string): boolean {
  * @returns {boolean}
  */
 export function isDataLine(line: string): boolean {
-    /* 
+    /*
      * Group 1 ([a-z]+)?            matches the Itemtype if exists
      * Group 2 ((([;]+)([^;]*))+)      matches ; and then everything except ; if exists multiple times
      */

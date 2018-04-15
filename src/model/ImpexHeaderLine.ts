@@ -36,12 +36,12 @@ export class ImpexHeaderLine extends ImpexLine {
             // take the start position and add the length of the desired column to get end position
             endPosition = startPosition + columns[columnIndex].length;
 
-            // add 1 to end position if start and end are the same 
+            // add 1 to end position if start and end are the same
             // and it is not the last charachter on the line
             if (startPosition === endPosition &&
                 (endPosition + 1) <= this.text.length) {
                 endPosition = endPosition + 1;
-            }            
+            }
         }
 
         return new Range(

@@ -21,7 +21,7 @@ export abstract class ImpexLine implements TextLine {
 
     /**
      * @abstract
-     * @returns {string[]}
+     * @returns {string[]} get all columns in an array
      * @memberof ImpexLine
      */
     abstract getColumns(): string[];

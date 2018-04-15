@@ -13,12 +13,12 @@ export class ImpexHeaderLine extends ImpexLine {
         }
     }
 
-    // TODO remoce header keyword
+    // TODO remove header keyword
     getColumns(): string[] {
         return this.text.split(";");
     }
 
-    // TODO remoce header keyword
+    // TODO remove header keyword
     rangeForColumnAtIndex(columnIndex: number): Range {
         let columns: string[] = this.getColumns();
 
@@ -39,7 +39,7 @@ export class ImpexHeaderLine extends ImpexLine {
         );
     }
 
-    // TODO remoce header keyword
+    // TODO remove header keyword
     columnIndexOfPostion(position: number): number {
         let columns: string[] = this.getColumns();
 
@@ -56,6 +56,6 @@ export class ImpexHeaderLine extends ImpexLine {
         }
 
         // will never be hit
-        return 0;
+        return -1;
     }
 }

@@ -1,4 +1,6 @@
 src/**/*
+test/**/*
+out/test/**/*
 .vscode/**/*
 .vscode-test/**/*
 .github/**/*

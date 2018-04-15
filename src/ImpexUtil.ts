@@ -26,7 +26,7 @@ export function isHeaderLine(line: string): boolean {
 export function isDataLine(line: string): boolean {
     /*
      * Group 1 ([a-z]+)?            matches the Itemtype if exists
-     * Group 2 ((([;]+)([^;]*))+)      matches ; and then everything except ; if exists multiple times
+     * Group 2 ((([;]+)([^;]*))+)   matches ; and then everything except ; if exists multiple times
      */
     return /^([a-z]+)?((([;]+)([^;]*))+)$/gi.test(line);
 }

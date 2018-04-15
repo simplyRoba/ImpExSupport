@@ -2,8 +2,8 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/simplyRoba/ImpExSupport.svg)](https://greenkeeper.io/)
 ![Travis branch](https://img.shields.io/travis/simplyRoba/ImpExSupport/master.svg)
-![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/simplyRoba.impex-support.svg)
-![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/d/simplyRoba.impex-support.svg)
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/simplyRoba.impex-support.svg)](https://marketplace.visualstudio.com/items?itemName=simplyRoba.impex-support)
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/d/simplyRoba.impex-support.svg)](https://marketplace.visualstudio.com/items?itemName=simplyRoba.impex-support)
 
 
 

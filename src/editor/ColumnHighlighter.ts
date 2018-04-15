@@ -30,33 +30,77 @@ export class ColumnHighlighter implements Disposable {
         if (this.enabled) {
             // The primary selection is always at index 0.
             let primarySelection: Selection = event.selections[0];
+            let cursorPosition: Position = primarySelection.active;
             let editor: TextEditor = event.textEditor;
             let document: TextDocument = editor.document;
 
             if (this.isValidSelection(primarySelection, document)) {
-                let lineNumber: number = primarySelection.active.line;
+                let lineNumber: number = cursorPosition.line;
                 let line: TextLine = document.lineAt(lineNumber);
 
-                if (isDataLine(line.text)) {
-                    let data: ImpexDataLine = new ImpexDataLine(line);
-                    let header: ImpexDataLine = this.findHeaderFor(line, document);
-                    let columnIndex: number = data.columnIndexOfPostion(primarySelection.active.character);
-                    let headerColumnRange: Range = header.rangeForColumnAtIndex(columnIndex);
-
-                    editor.setDecorations(columnHighlighterDecoration , [headerColumnRange]);
-                } else {
-                    this.resetDecorations(editor);
-                }
+                this.setDecorations(line, cursorPosition, editor);
             } else {
                 this.resetDecorations(editor);
             }
         }
     }
 
-    private findHeaderFor(line: TextLine, doc: TextDocument): ImpexHeaderLine {
+    private setDecorations(line: TextLine, cursor: Position, editor: TextEditor):void {
+        if (isDataLine(line.text)) {
+            let data: ImpexDataLine = new ImpexDataLine(line);
+            let header: ImpexHeaderLine = this.findHeaderFor(data, editor.document);
+            if (header) {
+                let columnIndex: number = data.columnIndexOfPostion(cursor.character);
+                this.setHeaderLineColumnDecoration(header, columnIndex, editor);
+            } else {
+                this.resetDecorations(editor);
+            }
+        } else if (isHeaderLine(line.text)) {
+            let header: ImpexHeaderLine = new ImpexHeaderLine(line);
+            let dataLines: ImpexDataLine[] = this.findDataLinesFor(header, editor.document);
+            if (dataLines) {
+                let columnIndex: number = header.columnIndexOfPostion(cursor.character);
+                this.setDataLineColumnDecorations(dataLines, columnIndex, editor);
+            } else {
+                this.resetDecorations(editor);
+            }
+        } else {
+            this.resetDecorations(editor);
+        }
+    }
 
-        // start at the line above and go up till the end of the document
-        for (let i = line.lineNumber - 1; i >= 0; i--) {
+    private setDataLineColumnDecorations(datalines: ImpexDataLine[], columnIndex: number, editor: TextEditor): void {
+        let ranges: Range[] = [];
+        datalines.forEach(line => {
+            ranges.push(line.rangeForColumnAtIndex(columnIndex));
+        });
+        editor.setDecorations(columnHighlighterDecoration, ranges);
+    }
+
+    private setHeaderLineColumnDecoration(header: ImpexHeaderLine, columnIndex: number, editor: TextEditor): void {
+        let columnRange: Range = header.rangeForColumnAtIndex(columnIndex);
+        editor.setDecorations(columnHighlighterDecoration, [columnRange]);
+    }
+
+    private findDataLinesFor(header: ImpexHeaderLine, doc: TextDocument): ImpexDataLine[] {
+        // start at the line below and go down till the the first no dataline is reached
+        let dataLines: ImpexDataLine[] = [];
+        for (let i = header.lineNumber + 1; i < doc.lineCount; i++) {
+            let actualLine: TextLine = doc.lineAt(i);
+            if (isDataLine(actualLine.text)) {
+                dataLines.push(new ImpexDataLine(actualLine));
+            }
+        }
+        if (dataLines.length > 0) {
+            return dataLines;
+        } else {
+            return null;
+        }
+    }
+
+    private findHeaderFor(dataLine: ImpexDataLine, doc: TextDocument): ImpexHeaderLine {
+        // start at the line above and go up till end of the document or header reached
+        for (let i = dataLine.lineNumber - 1; i >= 0; i--) {
             let actualLine: TextLine = doc.lineAt(i);
             if (isHeaderLine(actualLine.text)) {
                 return new ImpexHeaderLine(actualLine);

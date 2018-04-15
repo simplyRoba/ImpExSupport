@@ -2,7 +2,7 @@
 $catalog=TestCatalog
 $catalogVersion=catalogVersion(Catalog.uid($catalog), CatalogVersion.version(Staged))
 
-INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];reference(code);attribute;list;
+INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];;attribute;list;
 ;;testRow1;13534;"eins";item,item,item;
 ;;testRow2;13534;"eins";item;
 ;;testRow3;13534;"eins";item,item,item;

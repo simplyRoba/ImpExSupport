@@ -3,19 +3,20 @@ $catalog=TestCatalog
 $catalogVersion=catalogVersion(Catalog.uid($catalog), CatalogVersion.version(Staged))
 
 INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];;attribute;list;
-;;testRow1;13534;"eins";item,item,item;
-;;testRow2;13534;"eins";item;
+;;testRow1;13534
+;;testRow2;;"eins";item;
 ;;testRow3;13534;"eins";item,item,item;
 ;;testRow5;4634;"eins";item,item;
 ;;testRow6;4634;"fsdf";item,item,item;
 ;;testRow7;4634;"eins";item,item,item;
-;;testRow8;4634;"eins";item,item,item;
-;;testRow9;767;"tgdfg";item,item,item;
-;;testRow10;4634;"eins";;
-;;testRow11;4634;"eins";item,item,item;
+;;testRow8;4634;"eins";item,item,item
+;;testRow9;767;"tgdfg";item,item,item;;;;
+;;testRow10;4634;"eins"
+;;testRow11;;"eins";item,item,item;
 ;;testRow12;4634;"eins";item,item,item;
 ;;testRow13;34534;"eins";item,item;
-;;testRow14;4634;"eins";item,item,item;
+;;testRow14;4634
 ;;testRow15;4634;"efed";item,item,item;
-;;testRow16;4634;"eins";item,item,item;
+
+;;testRow16;4634;"eins";item,item,item
 ;;;;;;

@@ -7,10 +7,15 @@
 
 ## [0.x.x] - 2018-xx-xx
 
+## Added 
+
+* highlight the next semicolon if possible on an empty column
+
 ## Fixed
 
 * remove column highlighting on selections
-* fixed issue where lines containing only semicolons was not recognized correctly
+* fixed an error where lines containing only semicolons was not recognized correctly
+* fixed an error where the column highlighting wont work when there are lines with less columns then the header
 
 ## [0.1.0] - 2018-04-14
 

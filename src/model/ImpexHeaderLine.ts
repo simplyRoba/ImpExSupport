@@ -22,16 +22,27 @@ export class ImpexHeaderLine extends ImpexLine {
     rangeForColumnAtIndex(columnIndex: number): Range {
         let columns: string[] = this.getColumns();
 
-        let lengthSum: number = 0;
-        for (let i = 0; i < columnIndex ; i++) {
-            // sum up the length of all columns before the desired column to get start position
-            // add 1 to the length for the semicolon
-            lengthSum = lengthSum + columns[i].length + 1;
-        }
-        let startPosition: number = lengthSum;
+        let startPosition, endPosition: number = 0;
+        // only if the line has enough columns
+        if (columns.length > columnIndex) {
+            let lengthSum: number = 0;
+            for (let i = 0; i < columnIndex ; i++) {
+                // sum up the length of all columns before the desired column to get start position
+                // add 1 to the length for the semicolon
+                lengthSum = lengthSum + columns[i].length + 1;
+            }
+            startPosition =  lengthSum;
 
-        // take the start position and add the length of the desired column to get end position
-        let endPosition: number = startPosition + columns[columnIndex].length;
+            // take the start position and add the length of the desired column to get end position
+            endPosition = startPosition + columns[columnIndex].length;
+
+            // add 1 to end position if start and end are the same 
+            // and it is not the last charachter on the line
+            if (startPosition === endPosition &&
+                (endPosition + 1) <= this.text.length) {
+                endPosition = endPosition + 1;
+            }            
+        }
 
         return new Range(
             new Position(this.lineNumber, startPosition),

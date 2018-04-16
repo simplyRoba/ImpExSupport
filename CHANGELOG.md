@@ -8,8 +8,8 @@
 
 ## Fixed
 
-* remove syntax highlightng of single quotes
-* comments are only at start of a line
+* remove syntax highlightng of single quotes #7
+* comments are only at start of a line #6
 
 ## [0.2.0] - 2018-04-15
 

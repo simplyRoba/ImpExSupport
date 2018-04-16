@@ -51,7 +51,7 @@
         "comment": {
             "patterns": [{
                 "name": "comment.line.impex",
-                "match": "#.+$"
+                "match": "^#.+$"
             }]
         },
         "declaration": {

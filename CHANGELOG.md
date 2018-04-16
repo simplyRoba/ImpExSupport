@@ -4,6 +4,13 @@
 
 * column multicursor
 
+## [0.2.1] - 2018-04-xx
+
+## Fixed
+
+* remove syntax highlightng of single quotes
+* comments are only at start of a line
+
 ## [0.2.0] - 2018-04-15
 
 ## Added

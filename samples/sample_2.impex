@@ -11,7 +11,7 @@ INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];;attribute;list;
 ;;testRow7;4634;"ei;ns";;;
 ;;testRow8;4634;"eins";item,item,item
 ;;testRow9;767;"tgdfg";item,item,item;;;;
-;;testRow10;4634;"eins"
+;;testRow10;4634;"ein#s"
 ;;testRow11;;"eins";item,item,item;
 ;;testRow12;4634;"e'ins";item,item,item;
 ;;testRow13;34534;"eins";item,item;

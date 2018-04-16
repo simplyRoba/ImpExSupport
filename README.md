@@ -23,7 +23,7 @@ No requirements.
 
 ## Extension Settings
 
-See: [Configuration](doc/Configuration.md)
+See: [Configuration](docs/Configuration.md)
 
 ## Known Issues
 

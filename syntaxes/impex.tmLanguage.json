@@ -46,15 +46,6 @@
                     "name": "constant.character.escape.impex",
                     "match": "\\\\."
 			    }]
-            },
-            {
-                "name" : "string.quoted.single.impex",
-                "begin": "'",
-                "end": "'",
-                "patterns": [{
-                    "name": "constant.character.escape.impex",
-                    "match": "\\\\."
-                }]
             }]
         },
         "comment": {

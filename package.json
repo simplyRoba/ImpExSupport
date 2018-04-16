@@ -8,7 +8,7 @@
         "impex",
         "eCommerce"
     ],
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "simplyRoba",
     "repository": {
         "type": "git",
@@ -67,7 +67,7 @@
                     "impex.editor.columnHighlighting.enabled": {
                         "type": "boolean",
                         "default": false,
-                        "description": "Enables the column hoghlighting in impex files",
+                        "description": "Enables the column highlighting in impex files",
                         "scope": "window"
                     }
                 }

@@ -10,6 +10,6 @@
 
 ## Specifications
 
-* Version:
+* Extension Version:
+* VSCode Version:
 * Platform:
-* Subsystem:

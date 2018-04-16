@@ -6,6 +6,6 @@ List of all configuration values
 
 ### ColumnHighlighting
 
-Key|Values
----|------
-`impex.editor.columnHighlighting.enable`|`true or false`
+Key|Values|Default|Description
+---|------|-------|-----------
+`impex.editor.columnHighlighting.enabled`|`true` or `false`|`false`|enables the column highlighting

@@ -3,19 +3,25 @@
 ## [Unreleased]
 
 * column multicursor
-* data column highlighting
 
-## [0.x.x] - 2018-xx-xx
+## [0.2.0] - 2018-04-15
+
+## Added
+
+* higlight the data lines whne clicking on a header column
+* highlight the next semicolon if possible on an empty column
 
 ## Fixed
 
 * remove column highlighting on selections
+* fixed an error where lines containing only semicolons was not recognized correctly
+* fixed an error where the column highlighting wont work when there are lines with less columns then the header
 
 ## [0.1.0] - 2018-04-14
 
 ### Added
 
-* column highlighting on header (experimental) disabled by default - set `"impex.editor.columnHighlighting.enable": true` to enable
+* column highlighting on header (experimental) disabled by default - set `"impex.editor.columnHighlighting.enabled": true` to enable
 * default modifier snippet
 
 ## [0.0.2] - 2018-04-08

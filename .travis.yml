@@ -15,7 +15,11 @@ branches:
   - develop
   - /^greenkeeper.*$/
   - /^feature\/.*$/
-  - /^v?[0-9]+\.[0-9]+\.[0-9]+(.*)?$/
+  - /^v?[0-9]+\.[0-9]+\.[0-9]+$/
+
+  env:
+    global:
+      - ISPRODTAG=^v?[0-9]+\.[0-9]+\.[0-9]+$
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then
@@ -25,9 +29,21 @@ before_install:
     fi
 
 install:
+  - npm install -g vsce
   - npm install
   - npm run vscode:prepublish
 
 script:
   - npm run lint
   - npm test --silent
+  - vsce package
+
+deploy:
+  # deploy to vscode extension market
+  - provider: script  
+    script: vsce publish -p $VSCE_TOKEN --packagePath *.vsix
+    skip_cleanup: true
+    on:
+      tags: true
+      # if it's a PROD tag (something like 1.0.0), then publish extension to market.
+      condition: "$TRAVIS_OS_NAME == linux && $TRAVIS_TAG =~ $ISPRODTAG"

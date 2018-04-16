@@ -27,8 +27,8 @@ See: [Configuration](doc/Configuration.md)
 
 ## Known Issues
 
-No known issues.
-If you find one, feel free to open an issue on [GitHub](https://github.com/simplyRoba/ImpExSupport/issues)
+See: [Issues](https://github.com/simplyRoba/ImpExSupport/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+).
+If you find one, feel free to open an issue on [GitHub](https://github.com/simplyRoba/ImpExSupport/issues/new)
 
 ## Release Notes
 

@@ -1,0 +1,9 @@
+{
+    // Mocha Sidebar 
+    // https://marketplace.visualstudio.com/items?itemName=maty.vscode-mocha-sidebar
+    "mocha.files.glob": "out/test/**/*.js",
+    "mocha.path": "../node_modules/mocha",
+    "mocha.options": {
+        "ui": "tdd",
+    },
+}

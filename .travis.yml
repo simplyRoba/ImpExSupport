@@ -15,11 +15,11 @@ branches:
   - develop
   - /^greenkeeper.*$/
   - /^feature\/.*$/
-  - /^v?[0-9]+\.[0-9]+\.[0-9]+$/
+  - /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
-  env:
-    global:
-      - ISPRODTAG=^v?[0-9]+\.[0-9]+\.[0-9]+$
+env:
+  global:
+    - ISPRODTAG=^v[0-9]+\.[0-9]+\.[0-9]+$
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then

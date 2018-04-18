@@ -1,3 +1,6 @@
+import { reporters } from "mocha";
+import { CovSummary } from "mocha-text-cov";
+
 /*---------------------------------------------------------
  * Copyright (C) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
@@ -21,7 +24,8 @@ let testRunner = require("vscode/lib/testrunner");
 testRunner.configure({
     ui: "tdd", 		// the TDD UI is being used in extension.test.ts (suite, test, etc.)
     useColors: true, // colored output from test results
-    timeout: 5000
+    timeout: 5000,
+    reporter: CovSummary
 });
 
 module.exports = testRunner;

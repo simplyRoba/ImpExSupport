@@ -4,6 +4,12 @@
 
 * column multicursor
 
+## [0.2.2] - 2018-04-19
+
+## Fixed
+
+* some small improvments
+
 ## [0.2.1] - 2018-04-16
 
 ## Fixed

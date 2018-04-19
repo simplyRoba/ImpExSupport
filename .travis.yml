@@ -39,11 +39,21 @@ script:
   - vsce package
 
 deploy:
+  - provider: release
+    api_key: $GIT_TOKEN
+    file_glob: true
+    file: "*.vsix"
+    name: "ImpEx-Support $TRAVIS_TAG"
+    skip_cleanup: true
+    on:
+      tags: true
+      # if it's a PROD tag (something like v1.0.0), then publish extension to market.
+      condition: "$TRAVIS_OS_NAME == linux && $TRAVIS_TAG =~ $ISPRODTAG"
   # deploy to vscode extension market
   - provider: script  
     script: vsce publish -p $VSCE_TOKEN --packagePath *.vsix
     skip_cleanup: true
     on:
       tags: true
-      # if it's a PROD tag (something like 1.0.0), then publish extension to market.
+      # if it's a PROD tag (something like v1.0.0), then publish extension to market.
       condition: "$TRAVIS_OS_NAME == linux && $TRAVIS_TAG =~ $ISPRODTAG"

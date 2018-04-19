@@ -8,3 +8,5 @@ docs/**/*
 samples/**/*
 .gitignore
 tsconfig.json
+tslint.json
+.travis.yml

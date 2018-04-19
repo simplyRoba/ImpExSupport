@@ -1,5 +1,4 @@
 import { reporters } from "mocha";
-import { CovSummary } from "mocha-text-cov";
 
 /*---------------------------------------------------------
  * Copyright (C) Microsoft Corporation. All rights reserved.
@@ -25,7 +24,7 @@ testRunner.configure({
     ui: "tdd", 		// the TDD UI is being used in extension.test.ts (suite, test, etc.)
     useColors: true, // colored output from test results
     timeout: 5000,
-    reporter: CovSummary
+    reporter: "Dot"
 });
 
 module.exports = testRunner;

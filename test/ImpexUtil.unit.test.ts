@@ -2,7 +2,7 @@
 import { isHeaderLine, isDataLine } from "../src/ImpexUtil";
 import { expect } from "chai";
 
-suite("Impex Util Test", () => {
+suite("Impex Util Unit Test", () => {
     test("recognizes header line", () => {
 
         let result1: boolean = isHeaderLine("INSERT Item;code[unique=true];attribute;");

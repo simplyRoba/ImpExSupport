@@ -39,7 +39,7 @@ script:
   - vsce package
 
 deploy:
-  - provider: release
+  - provider: releases
     api_key: $GIT_TOKEN
     file_glob: true
     file: "*.vsix"

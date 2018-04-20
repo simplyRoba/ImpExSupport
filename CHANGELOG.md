@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * column multicursor
+* shrink modifier for better readability
 
 ## [0.2.2] - 2018-04-19
 

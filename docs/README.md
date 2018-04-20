@@ -1,6 +1,6 @@
 # Documentation
 
-* [Installation](../README.md#Installation)
+* [Installation](../README.md#installation)
 * [Configuration](docs/Configuration.md)
 * [Snippets](docs/Snippets.md)
 

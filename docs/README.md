@@ -1,8 +1,8 @@
 # Documentation
 
 * [Installation](../README.md#installation)
-* [Configuration](docs/Configuration.md)
-* [Snippets](docs/Snippets.md)
+* [Configuration](Configuration.md)
+* [Snippets](Snippets.md)
 
 ## Requirements
 

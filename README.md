@@ -20,6 +20,7 @@ Languages support for the SAP Hybris import/export language ImpEx.
 ## Installation
 
 There are some ways to install this extension, the simplest is over the extensions tab in VS Code. Press `Shift+⌘+X` on mac or `Ctrl+Shift+X` on windows and search for _impex_. Look for _ImpEx Support_ and click install.
+
 You can also install the package directly. Download the _vsix_ file of your desired version from [releases](https://github.com/simplyRoba/ImpExSupport/releases) and open the **Command Palette**, search for the _Extensions: Install from VSIX..._ command and select the vsix file from your harddrive.
 
 ## Documentation

@@ -12,7 +12,12 @@
             "runtimeExecutable": "${execPath}",
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}"
-            ]
+            ],
+            "stopOnEntry": false,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/out/src/**/*.js"
+            ],
         },
         {
             "name": "Extension Tests",
@@ -23,6 +28,8 @@
                 "--extensionDevelopmentPath=${workspaceFolder}",
                 "--extensionTestsPath=${workspaceFolder}/out/test"
             ],
+            "stopOnEntry": false,
+            "sourceMaps": true,
             "outFiles": [
                 "${workspaceFolder}/out/test/**/*.js"
             ]

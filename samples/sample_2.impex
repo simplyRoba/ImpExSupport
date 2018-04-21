@@ -4,19 +4,19 @@ $catalogVersion=catalogVersion(Catalog.uid($catalog), CatalogVersion.version(Sta
 
 INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];;attribute;list;
 ;;testRow1;13534
-;;testRow2;;"eins";item;
+;;testRow2;;"ein's";item;
 ;;testRow3;13534;"eins";item,item,item;
 ;;testRow5;4634;"eins";item,item;
 ;;testRow6;4634;"fsdf";item,item,item;
-;;testRow7;4634;"eins";;;
+;;testRow7;4634;"ei;ns";;;
 ;;testRow8;4634;"eins";item,item,item
 ;;testRow9;767;"tgdfg";item,item,item;;;;
-;;testRow10;4634;"eins"
+;;testRow10;4634;"ein#s"
 ;;testRow11;;"eins";item,item,item;
-;;testRow12;4634;"eins";item,item,item;
+;;testRow12;4634;"e'ins";item,item,item;
 ;;testRow13;34534;"eins";item,item;
 ;;testRow14;4634
-;;testRow15;4634;"efed";item,item,item;
+;;testRow15;4634;"ef""ed";item,item,item;
 
 ;;testRow16;4634;"eins";item,item,item
 ;;;;;;

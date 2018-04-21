@@ -46,21 +46,12 @@
                     "name": "constant.character.escape.impex",
                     "match": "\\\\."
 			    }]
-            },
-            {
-                "name" : "string.quoted.single.impex",
-                "begin": "'",
-                "end": "'",
-                "patterns": [{
-                    "name": "constant.character.escape.impex",
-                    "match": "\\\\."
-                }]
             }]
         },
         "comment": {
             "patterns": [{
                 "name": "comment.line.impex",
-                "match": "#.+$"
+                "match": "^#.+$"
             }]
         },
         "declaration": {

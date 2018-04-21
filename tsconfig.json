@@ -2,13 +2,16 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"outDir": "out",
-		"sourceMap": true,
+        "sourceMap": true,
+        "alwaysStrict": true,
 		"target": "es6",
 		"lib": [
 			"es2015"
-		]
+        ],
+        "rootDir": "."
 	},
 	"exclude": [
-		"node_modules"
+        "node_modules",
+        ".vscode-test"
 	]
 }

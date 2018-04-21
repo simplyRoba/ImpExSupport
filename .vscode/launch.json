@@ -6,7 +6,7 @@
 	"version": "0.2.0",
     	"configurations": [
         {
-            "name": "Extension",
+            "name": "run extension",
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
@@ -21,7 +21,7 @@
             "preLaunchTask": "build",
         },
         {
-            "name": "Extension Tests",
+            "name": "run extension tests",
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",

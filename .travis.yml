@@ -30,13 +30,13 @@ before_install:
 
 install:
   - npm install -g vsce
+  - npm install -g gulp
   - npm install
-  - npm run vscode:prepublish
 
 script:
-  - npm run lint
-  - npm test --silent
+  - gulp lint
   - vsce package
+  - gulp test
 
 deploy:
   - provider: releases

@@ -80,6 +80,8 @@
         "test": "gulp test"
     },
     "dependencies": {
+        "@types/csv-parse": "^1.1.11",
+        "csv-parse": "^2.2.0",
         "vscode": "^1.1.14"
     },
     "devDependencies": {

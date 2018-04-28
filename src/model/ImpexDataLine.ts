@@ -2,6 +2,7 @@
 import { Position, Range, TextLine } from "vscode";
 import { ImpexLine } from "./ImpexLine";
 import { isDataLine } from "../ImpexUtil";
+import * as parse from "csv-parse";
 
 export class ImpexDataLine extends ImpexLine {
 
@@ -14,7 +15,38 @@ export class ImpexDataLine extends ImpexLine {
     }
 
     getColumns(): string[] {
-        return this.text.split(";");
+        // TODO do not split on strings with semicolon in it
+        let line: string = this.text;
+        let colums: string[] = [];
+
+        while (line.length > 0) {
+            let columnEnd: number = 0;
+            if (firstNonWhitespaceCharIs("\"", line)) {
+                // TODO find last " and then the next ;
+                
+            } else if (firstNonWhitespaceCharIs(";", line)) {
+                // find next ; after the starting one, its the end of the column
+                let startAfter: number = line.indexOf(";");
+                columnEnd = line.indexOf(";", startAfter);
+            } else {
+                // has to be the last column
+                columnEnd = line.length - 1;
+            }
+
+            // cut till columnEnd and add to columns
+            let column: string = line.substring(0, columnEnd);
+            colums.push(column);
+            // next iteration with the rest
+            line = line.substring(columnEnd + 1);
+        }
+
+        return colums;
+
+        function firstNonWhitespaceCharIs(searchstring: string, text: string): boolean {
+            let regexPattern: string = "^[ ]*" + searchstring;
+            let regex: RegExp = new RegExp(regexPattern);
+            return regex.test(text);
+        }
     }
 
     rangeForColumnAtIndex(columnIndex: number): Range {

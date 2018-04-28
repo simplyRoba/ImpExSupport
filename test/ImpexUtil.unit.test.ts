@@ -1,7 +1,6 @@
 
 import { isHeaderLine, isDataLine } from "../src/ImpexUtil";
 import { expect } from "chai";
-import * as parse from "csv-parse";
 
 suite("ImpexUtil Unit Test", () => {
     test("recognizes header line", () => {

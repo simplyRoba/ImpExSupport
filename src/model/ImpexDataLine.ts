@@ -2,7 +2,6 @@
 import { Position, Range, TextLine } from "vscode";
 import { ImpexLine } from "./ImpexLine";
 import { isDataLine } from "../ImpexUtil";
-import * as parse from "csv-parse";
 
 export class ImpexDataLine extends ImpexLine {
 

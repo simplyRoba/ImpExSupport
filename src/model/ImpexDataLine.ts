@@ -17,7 +17,7 @@ export class ImpexDataLine extends ImpexLine {
     getColumns(): string[] {
         // TODO do not split on strings with semicolon in it
         let line: string = this.text;
-        let colums: string[] = [];
+        let columns: string[] = [];
 
         while (line.length > 0) {
             let columnEnd: number = 0;
@@ -38,12 +38,19 @@ export class ImpexDataLine extends ImpexLine {
 
             // cut till columnEnd and add to array
             let column: string = line.substring(0, columnEnd);
-            colums.push(column);
-            // next iteration starting after the semicolon this column
+            columns.push(column);
+
+            // if the line is just a semicolon push aan extra empty string
+            // to columns for the last column after the last semicolon
+            if (line === ";") {
+                columns.push("");
+            }
+
+            // next iteration starting after the semicolon of this column
             line = line.substring(columnEnd + 1);
         }
 
-        return colums;
+        return columns;
 
         function firstNonWhitespaceCharIs(searchstring: string, text: string): boolean {
             let regexPattern: string = "^[ ]*" + searchstring;

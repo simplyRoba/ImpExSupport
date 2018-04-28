@@ -65,9 +65,8 @@ export class ImpexDataLine extends ImpexLine {
             if (end >= 0) {
                 return end;
             } else {
-                // is last column without trailing semicolon
-                // (non zero-based to zero-based)
-                return line.length - 1;
+                // its the last column without trailing semicolon
+                return line.length;
             }
         }
     }

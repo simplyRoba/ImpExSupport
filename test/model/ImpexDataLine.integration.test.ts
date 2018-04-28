@@ -35,6 +35,17 @@ suite("ImpexDataLine Integration Test", () => {
         expect(columns1.length).to.be.equals(6);
         expect(columns2.length).to.be.equals(6);
     });
+
+    test("length of the last column should be correct", () => {
+        let line1: ImpexDataLine = new ImpexDataLine(createTextLine(23, ";;testRow10;4634;\"ein#s\""));
+        let line2: ImpexDataLine = new ImpexDataLine(createTextLine(12, ";   ;  ergR;535;    ;f454"));
+
+        let columns1: string[] = line1.getColumns();
+        let columns2: string[] = line2.getColumns();
+
+        expect(columns1[4].length).to.be.equals(7);
+        expect(columns2[5].length).to.be.equals(4);
+    });
 });
 
 function createTextLine(lineNumber: number, text: string): TextLine {

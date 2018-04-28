@@ -21,22 +21,25 @@ export class ImpexDataLine extends ImpexLine {
 
         while (line.length > 0) {
             let columnEnd: number = 0;
+            // check if string column
             if (firstNonWhitespaceCharIs("\"", line)) {
-                // TODO find last " and then the next ;
-                
-            } else if (firstNonWhitespaceCharIs(";", line)) {
-                // find next ; after the starting one, its the end of the column
-                let startAfter: number = line.indexOf(";");
-                columnEnd = line.indexOf(";", startAfter);
+                // find last double quote
+                let lastDoubleQuote: number = line.indexOf("\"");
+                let isEscaped: boolean = false;
+                do {
+                    lastDoubleQuote = line.indexOf("\"", lastDoubleQuote + 1);
+                    isEscaped = line.charAt(lastDoubleQuote + 2) === "\"";
+                } while (isEscaped);
+                // and then the next semicolon
+                columnEnd = nextSemicolonOrLineEnd(line, lastDoubleQuote);
             } else {
-                // has to be the last column
-                columnEnd = line.length - 1;
+                columnEnd = nextSemicolonOrLineEnd(line);
             }
 
-            // cut till columnEnd and add to columns
+            // cut till columnEnd and add to array
             let column: string = line.substring(0, columnEnd);
             colums.push(column);
-            // next iteration with the rest
+            // next iteration starting after the semicolon this column
             line = line.substring(columnEnd + 1);
         }
 
@@ -46,6 +49,19 @@ export class ImpexDataLine extends ImpexLine {
             let regexPattern: string = "^[ ]*" + searchstring;
             let regex: RegExp = new RegExp(regexPattern);
             return regex.test(text);
+        }
+
+        function nextSemicolonOrLineEnd(text: string, startAt?: number): number {
+            // find next semicolon
+            // indexOf() returns -1 if searchstring does not exist
+            let end: number = line.indexOf(";", startAt);
+            if (end >= 0) {
+                return end;
+            } else {
+                // is last column without trailing semicolon
+                // (non zero-based to zero-based)
+                return line.length - 1;
+            }
         }
     }
 

@@ -27,7 +27,7 @@ suite("ImpexDataLine Integration Test", () => {
 
     test("should ignore semicolons on strings in column", () => {
         let line1: ImpexDataLine = new ImpexDataLine(createTextLine(34, ";;  \"str;ing\"   ;45;;"));
-        let line2: ImpexDataLine = new ImpexDataLine(createTextLine(34, ";;;45;;  \"str;ing\"   "));
+        let line2: ImpexDataLine = new ImpexDataLine(createTextLine(34, ";;\"str;\"\"ing\";45;;  \"str;ing\"   "));
 
         let columns1: string[] = line1.getColumns();
         let columns2: string[] = line2.getColumns();

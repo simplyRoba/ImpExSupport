@@ -6,9 +6,6 @@ import { createStubInstance } from "sinon";
 
 suite("ImpexDataLine Integration Test", () => {
 
-    let validLine1: TextLine = createTextLine(4, ";;\"string\";45;;");
-    let invalidLine: TextLine = createTextLine(8, "");
-
     test("should not instantiate on invalid line", () => {
         expect(() => new ImpexDataLine(createTextLine(8, ""))).to.throw(Error);
         expect(() => new ImpexDataLine(createTextLine(34, "#;item;"))).to.throw(Error);

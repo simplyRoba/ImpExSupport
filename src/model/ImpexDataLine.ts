@@ -14,7 +14,6 @@ export class ImpexDataLine extends ImpexLine {
     }
 
     getColumns(): string[] {
-        // TODO do not split on strings with semicolon in it
         let line: string = this.text;
         let columns: string[] = [];
 

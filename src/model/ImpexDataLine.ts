@@ -26,7 +26,7 @@ export class ImpexDataLine extends ImpexLine {
                 let isEscaped: boolean = false;
                 do {
                     lastDoubleQuote = line.indexOf("\"", lastDoubleQuote + 1);
-                    isEscaped = line.charAt(lastDoubleQuote + 2) === "\"";
+                    isEscaped = line.charAt(lastDoubleQuote + 1) === "\"";
                 } while (isEscaped);
                 // and then the next semicolon
                 columnEnd = nextSemicolonOrLineEnd(line, lastDoubleQuote);
@@ -38,9 +38,9 @@ export class ImpexDataLine extends ImpexLine {
             let column: string = line.substring(0, columnEnd);
             columns.push(column);
 
-            // if the line is just a semicolon push aan extra empty string
+            // if the rest of the line is just a semicolon push an extra empty string
             // to columns for the last column after the last semicolon
-            if (line === ";") {
+            if (line.substring(columnEnd) === ";") {
                 columns.push("");
             }
 

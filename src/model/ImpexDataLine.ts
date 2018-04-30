@@ -14,7 +14,59 @@ export class ImpexDataLine extends ImpexLine {
     }
 
     getColumns(): string[] {
-        return this.text.split(";");
+        let line: string = this.text;
+        let columns: string[] = [];
+
+        while (line.length > 0) {
+            let columnEnd: number = 0;
+            // check if string column
+            if (firstNonWhitespaceCharIs("\"", line)) {
+                // find last double quote
+                let lastDoubleQuote: number = line.indexOf("\"");
+                let isEscaped: boolean = false;
+                do {
+                    lastDoubleQuote = line.indexOf("\"", lastDoubleQuote + 1);
+                    isEscaped = line.charAt(lastDoubleQuote + 1) === "\"";
+                } while (isEscaped);
+                // and then the next semicolon
+                columnEnd = nextSemicolonOrLineEnd(line, lastDoubleQuote);
+            } else {
+                columnEnd = nextSemicolonOrLineEnd(line);
+            }
+
+            // cut till columnEnd and add to array
+            let column: string = line.substring(0, columnEnd);
+            columns.push(column);
+
+            // if the rest of the line is just a semicolon push an extra empty string
+            // to columns for the last column after the last semicolon
+            if (line.substring(columnEnd) === ";") {
+                columns.push("");
+            }
+
+            // next iteration starting after the semicolon of this column
+            line = line.substring(columnEnd + 1);
+        }
+
+        return columns;
+
+        function firstNonWhitespaceCharIs(searchstring: string, text: string): boolean {
+            let regexPattern: string = "^[ ]*" + searchstring;
+            let regex: RegExp = new RegExp(regexPattern);
+            return regex.test(text);
+        }
+
+        function nextSemicolonOrLineEnd(text: string, startAt?: number): number {
+            // find next semicolon
+            // indexOf() returns -1 if searchstring does not exist
+            let end: number = line.indexOf(";", startAt);
+            if (end >= 0) {
+                return end;
+            } else {
+                // its the last column without trailing semicolon
+                return line.length;
+            }
+        }
     }
 
     rangeForColumnAtIndex(columnIndex: number): Range {

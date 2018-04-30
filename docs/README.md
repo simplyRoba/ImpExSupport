@@ -1,9 +1,9 @@
 # Documentation
 
+Table  of Contents
+
 * [Installation](../README.md#installation)
-* [Configuration](Configuration.md)
+* [Get Started](../README.md#get-started)
 * [Snippets](Snippets.md)
-
-## Requirements
-
-No requirements.
+* [Options](Configuration.md)
+* [Development](Development.md)

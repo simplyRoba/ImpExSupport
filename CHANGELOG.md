@@ -5,6 +5,12 @@
 * column multicursor
 * shrink modifier for better readability
 
+## [0.2.3] - 2018-04-28
+
+## Fixed
+
+* fixed the parsing of strings #8
+
 ## [0.2.2] - 2018-04-19
 
 ## Fixed

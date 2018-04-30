@@ -5,6 +5,13 @@
 * column multicursor
 * shrink modifier for better readability
 
+## [0.x.x] - 2018-xx-xx
+
+## Fixed
+
+* fixed the parsing of strings that are side by side #20
+* fixed a bug where the last column was not recognized 
+
 ## [0.2.3] - 2018-04-28
 
 ## Fixed

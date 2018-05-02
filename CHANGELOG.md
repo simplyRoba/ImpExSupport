@@ -5,7 +5,7 @@
 * column multicursor
 * shrink modifier for better readability
 
-## [0.x.x] - 2018-xx-xx
+## [0.2.4] - 2018-05-01
 
 ## Fixed
 

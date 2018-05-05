@@ -13,20 +13,20 @@ export class ColumnHighlighter implements Disposable {
     private subscriptions: Disposable[] = [];
     private enabled: boolean = workspace.getConfiguration().get("impex.editor.columnHighlighting.enabled");
 
-    constructor () {
+    public init() {
         // reigster event on initialize
         window.onDidChangeTextEditorSelection(this.selectionChanged, this, this.subscriptions);
         workspace.onDidChangeConfiguration(this.changeConfigProperty, this, this.subscriptions);
     }
 
-    private changeConfigProperty(event: ConfigurationChangeEvent) {
+    public changeConfigProperty(event: ConfigurationChangeEvent) {
         // TODO handle configuration change with register/deregister event listener
         if (event.affectsConfiguration("impex.editor.columnHighlighting.enabled")) {
             this.enabled = workspace.getConfiguration().get("impex.editor.columnHighlighting.enabled");
         }
     }
 
-    private selectionChanged(event: TextEditorSelectionChangeEvent) {
+    public selectionChanged(event: TextEditorSelectionChangeEvent) {
         if (this.enabled) {
             // The primary selection is always at index 0.
             let primarySelection: Selection = event.selections[0];

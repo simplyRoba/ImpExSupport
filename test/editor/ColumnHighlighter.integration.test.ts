@@ -9,7 +9,6 @@ import { Selection, workspace, TextEditor, TextEditorSelectionChangeEvent, TextE
 suite("ColumnHighlighter Integration Test", () => {
 
     test.skip("should decorate header", () => {
-        // TODO fix resource path
         workspace.openTextDocument(TestColumnHiglighterImpex).then((document) => {
 
             window.showTextDocument(document).then((editor) => {

@@ -8,7 +8,9 @@ import { SeperatorHighlighter } from "./editor/SeperatorHighlighter";
 // controlled by the activation events defined in package.json
 export function activate(ctx: ExtensionContext) {
 
-    let columnHighlighter = new ColumnHighlighter();
+    let columnHighlighter: ColumnHighlighter = new ColumnHighlighter();
+    columnHighlighter.init();
+
     let seperatorHighlighter = new SeperatorHighlighter();
 
     // add to a list of disposables which are disposed when this extension

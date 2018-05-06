@@ -3,13 +3,13 @@ $catalog=TestCatalog
 $catalogVersion=catalogVersion(Catalog.uid($catalog), CatalogVersion.version(Staged))
 
 INSERT_UPDATE Product;$catalogVersion;code(uid)[unique=true];;attribute;list;
-;;testRow1;13534
+;;testRow1;"13534" 
 ;;testRow2;;"ein's";item;
 ;;testRow3;13534;"eins";item,item,item;
 ;;testRow5;4634;"eins";item,item;
 ;;testRow6;4634;"fsdf";item,item,item;
 ;;testRow7;4634;"ei;ns";;;
-;;testRow8;4634;"eins";item,item,item
+;;testRow8;"4634";"eins";item,item,item
 ;;testRow9;767;"tgdfg";item,item,item;;;;
 ;;testRow10;4634;"ein#s"
 ;;testRow11;;"eins";item,item,item;

@@ -1,10 +1,7 @@
 
-import { activate } from "../src/extension";
-import { ExtensionContext, Memento, extensions, Extension, workspace, window } from "vscode";
-import { spy, mock, verify } from "ts-mockito/lib/ts-mockito";
+import { Extension, workspace, window, extensions } from "vscode";
 import { expect } from "chai";
-import { TestColumnHiglighterImpex } from "./resources";
-
+import { TestColumnHiglighterImpex } from "./Resources";
 
 suite("Extension Integration Test", () => {
 

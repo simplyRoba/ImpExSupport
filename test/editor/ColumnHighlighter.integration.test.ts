@@ -1,7 +1,7 @@
 
 import * as path from "path";
 import { expect } from "chai";
-import { TestColumnHiglighterImpex } from "../resources";
+import { TestColumnHiglighterImpex } from "../Resources";
 import { ColumnHighlighter } from "../../src/editor/ColumnHighlighter";
 import { Selection, workspace, TextEditor, TextEditorSelectionChangeEvent, TextEditorSelectionChangeKind, window, Position } from "vscode";
 

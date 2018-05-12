@@ -3,6 +3,7 @@ var gulp = require("gulp");
 var gutil = require("gulp-util");
 var ts = require("gulp-typescript");
 var sourcemaps = require("gulp-sourcemaps");
+var jeditor = require("gulp-json-editor");
 var tslint = require("gulp-tslint");
 var del = require("del");
 var path = require("path");
@@ -55,6 +56,24 @@ gulp.task("test", (done) => {
             done(code);
         }
     });
+});
+
+gulp.task('cover:enable',() => {
+    return gulp.src("./coverconfig.json")
+    .pipe(jeditor(function(json) {
+        json.enabled = true;
+        return json; // must return JSON object.
+    }))
+    .pipe(gulp.dest("./", {'overwrite':true}));
+});
+
+gulp.task('cover:disable', () => {
+    return gulp.src("./coverconfig.json")
+    .pipe(jeditor(function(json) {
+        json.enabled = false;
+        return json; // must return JSON object.
+    }))
+    .pipe(gulp.dest("./", {'overwrite':true}));
 });
 
 gulp.task("clean", (done) => {

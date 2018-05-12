@@ -2,7 +2,7 @@
 import { ImpexHeaderLine } from "../../src/model/ImpexHeaderLine";
 import { TextLine, Range } from "vscode";
 import { expect } from "chai";
-import { createStubInstance } from "sinon";
+import { mock } from "ts-mockito";
 
 suite("ImpexHeaderLine Integration Test", () => {
 
@@ -29,8 +29,8 @@ function createTextLine(lineNumber: number, text: string): TextLine {
     return {
         lineNumber: lineNumber,
         text: text,
-        range: createStubInstance(Range),
-        rangeIncludingLineBreak: createStubInstance(Range),
+        range: mock(Range),
+        rangeIncludingLineBreak: mock(Range),
         firstNonWhitespaceCharacterIndex: 0,
         isEmptyOrWhitespace: false,
     };

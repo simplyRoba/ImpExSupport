@@ -58,3 +58,6 @@ deploy:
       tags: true
       # if it's a PROD tag (something like v1.0.0), then publish extension to market.
       condition: "$TRAVIS_OS_NAME == linux && $TRAVIS_TAG =~ $ISPRODTAG"
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)

@@ -58,7 +58,7 @@ gulp.task("test", (done) => {
 });
 
 gulp.task("clean", (done) => {
-    return del('out', done);
+    return del(['out', 'coverage'], done);
 });
 
 gulp.task("build", (done) => {

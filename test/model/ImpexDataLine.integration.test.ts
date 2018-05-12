@@ -46,6 +46,33 @@ suite("ImpexDataLine Integration Test", () => {
         expect(columns1[4].length).to.be.equals(7);
         expect(columns2[5].length).to.be.equals(4);
     });
+
+    test("range should have the correct linenumber", () => {
+        let lineNumber: number = 5;
+        let line: ImpexDataLine = new ImpexDataLine(createTextLine(lineNumber, ";test;test;test;"));
+
+        let range: Range = line.rangeForColumnAtIndex(2);
+
+        expect(range.start.line).to.be.equals(lineNumber);
+    });
+
+    test("range should be the complete column", () => {
+        let line: ImpexDataLine = new ImpexDataLine(createTextLine(23, "tt;test;nufun;d"));
+
+        let range: Range = line.rangeForColumnAtIndex(1);
+
+        expect(range.start.character).to.be.equals(3);
+        expect(range.end.character).to.be.equals(7);
+    });
+
+    test("range of empty column should be following semicolon", () => {
+        let line: ImpexDataLine = new ImpexDataLine(createTextLine(23, "tt;;nufun;d"));
+
+        let range: Range = line.rangeForColumnAtIndex(1);
+
+        expect(range.start.character).to.be.equals(3);
+        expect(range.end.character).to.be.equals(4);
+    });
 });
 
 function createTextLine(lineNumber: number, text: string): TextLine {

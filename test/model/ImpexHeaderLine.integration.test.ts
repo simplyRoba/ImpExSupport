@@ -42,6 +42,15 @@ suite("ImpexHeaderLine Integration Test", () => {
         expect(range.end.character).to.be.equals(18);
     });
 
+    test("range of empty column should be following semicolon", () => {
+        let line: ImpexHeaderLine = new ImpexHeaderLine(createTextLine(23, "INSERT Item;;nufun;d"));
+
+        let range: Range = line.rangeForColumnAtIndex(1);
+
+        expect(range.start.character).to.be.equals(12);
+        expect(range.end.character).to.be.equals(13);
+    });
+
     test("should return correct index for position", () => {
         let line: ImpexHeaderLine = new ImpexHeaderLine(createTextLine(34, "UPDATE Item;field1;field2;"));
 

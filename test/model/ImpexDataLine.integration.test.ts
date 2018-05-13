@@ -73,6 +73,14 @@ suite("ImpexDataLine Integration Test", () => {
         expect(range.start.character).to.be.equals(3);
         expect(range.end.character).to.be.equals(4);
     });
+
+    test("should return correct column index", () => {
+        let line: ImpexDataLine = new ImpexDataLine(createTextLine(12, ";823;testattr;234;"));
+
+        let index: number = line.columnIndexOfPostion(9);
+
+        expect(index).to.be.equals(2);
+    });
 });
 
 function createTextLine(lineNumber: number, text: string): TextLine {

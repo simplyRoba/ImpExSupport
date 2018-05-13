@@ -10,7 +10,7 @@ coverage:
 
   status:
     project: yes
-    patch: yes
+    patch: no
     changes: no
 
 parsers:
@@ -18,7 +18,7 @@ parsers:
     branch_detection:
       conditional: yes
       loop: yes
-      method: no
+      method: yes
       macro: no
 
 comment:

@@ -117,6 +117,6 @@ export class ImpexDataLine extends ImpexLine {
         }
 
         // will never be hit
-        return 0;
+        return -1;
     }
 }

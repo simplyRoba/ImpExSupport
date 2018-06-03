@@ -7,33 +7,36 @@ var jeditor = require("gulp-json-editor");
 var tslint = require("gulp-tslint");
 var del = require("del");
 var path = require("path");
-var runSequence = require("run-sequence");
-var childProcess = require("child_process");
+var cp = require("child_process");
 
 gulp.task("lint", () => {
-    gulp.src(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"])
-        .pipe(tslint())
-        .pipe(tslint.report());
+    pump([
+        gulp.src(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"]),
+        tslint(),
+        tslint.report()
+    ]);
 });
 
-gulp.task("compile", () => {
+gulp.task("compile", (done) => {
     const tsProject = ts.createProject("./tsconfig.json");
-    return tsProject.src()
-        .pipe(sourcemaps.init())
-        .pipe(tsProject())
-        .pipe(sourcemaps.write(".", {
+    pump([
+        tsProject.src(),
+        sourcemaps.init(),
+        tsProject(),
+        sourcemaps.write(".", {
             mapSources: (sourcePath, file) => {
                 // Correct source map path.
                 const relativeSourcePath = path.relative(path.dirname(file.path), path.join(file.base, sourcePath));
                 return relativeSourcePath;
             }
-        }))
-        .pipe(gulp.dest("out"));
+        }),
+        gulp.dest("out")
+    ], done);
 });
 
 gulp.task("test", (done) => {
 
-    const child = childProcess.spawn("node", ["./node_modules/vscode/bin/test"], {
+    const child = cp.spawn("node", ["./node_modules/vscode/bin/test"], {
         cwd: __dirname
     });
 
@@ -58,22 +61,26 @@ gulp.task("test", (done) => {
     });
 });
 
-gulp.task('cover:enable',() => {
-    return gulp.src("./coverconfig.json")
-    .pipe(jeditor(function(json) {
-        json.enabled = true;
-        return json; // must return JSON object.
-    }))
-    .pipe(gulp.dest("./", {'overwrite':true}));
+gulp.task('cover:enable', (done) => {
+    pump([
+        gulp.src("./coverconfig.json"),
+        jeditor(function(json) {
+            json.enabled = true;
+            return json; // must return JSON object.
+        }),
+        gulp.dest("./", {'overwrite':true})
+    ], done);
 });
 
 gulp.task('cover:disable', () => {
-    return gulp.src("./coverconfig.json")
-    .pipe(jeditor(function(json) {
+    pump([
+        gulp.src("./coverconfig.json"),
+        jeditor(function(json) {
         json.enabled = false;
         return json; // must return JSON object.
-    }))
-    .pipe(gulp.dest("./", {'overwrite':true}));
+        }),
+        gulp.dest("./", {'overwrite':true})
+    ]);
 });
 
 gulp.task("clean", (done) => {

@@ -10,6 +10,7 @@
 ## Changed
 
 * column highlighting seems to work properly - its enabled by default now
+* migrated to gulp v4
 
 ## Security
 

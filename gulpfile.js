@@ -1,6 +1,7 @@
 
 var gulp = require("gulp");
 var gutil = require("gulp-util");
+var pump = require("pump");
 var ts = require("gulp-typescript");
 var sourcemaps = require("gulp-sourcemaps");
 var jeditor = require("gulp-json-editor");
@@ -9,12 +10,12 @@ var del = require("del");
 var path = require("path");
 var cp = require("child_process");
 
-gulp.task("lint", () => {
+gulp.task("lint", (done) => {
     pump([
         gulp.src(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"]),
         tslint(),
         tslint.report()
-    ]);
+    ], done);
 });
 
 gulp.task("compile", (done) => {
@@ -72,7 +73,7 @@ gulp.task('cover:enable', (done) => {
     ], done);
 });
 
-gulp.task('cover:disable', () => {
+gulp.task('cover:disable', (done) => {
     pump([
         gulp.src("./coverconfig.json"),
         jeditor(function(json) {
@@ -80,17 +81,15 @@ gulp.task('cover:disable', () => {
         return json; // must return JSON object.
         }),
         gulp.dest("./", {'overwrite':true})
-    ]);
+    ], done);
 });
 
 gulp.task("clean", (done) => {
     return del(['out', 'coverage'], done);
 });
 
-gulp.task("build", (done) => {
-    runSequence("clean", "compile", done);
-});
+gulp.task("build", gulp.series("clean", "compile"));
 
 gulp.task("watch", () => {
-    gulp.watch(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"], ["compile"]);
+    gulp.watch(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"], gulp.series("compile"));
 });

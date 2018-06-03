@@ -30,8 +30,8 @@ before_install:
     fi
 
 install:
-  - npm install -g vsce
-  - npm install -g gulp
+  - npm install vsce -g
+  - npm install gulp-cli -g
   - npm install
 
 script:

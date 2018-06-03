@@ -10,6 +10,35 @@ var del = require("del");
 var path = require("path");
 var cp = require("child_process");
 
+// Helper
+function spawn(command, args, done) {
+
+    const child = cp.spawn(command, args, {
+        cwd: __dirname
+    });
+
+    child.stdout.on("data", (data) => {
+        gutil.log(data.toString().trim());
+    });
+
+    child.stderr.on("data", (data) => {
+        gutil.log(gutil.colors.red(data.toString().trim()));
+    });
+
+    child.on("error", (error) => {
+        gutil.log(gutil.colors.red(error));
+    });
+
+    child.on("exit", (code) => {
+        if (code === 0) {
+            done();
+        } else {
+            done(code);
+        }
+    });
+}
+
+// Tasks
 gulp.task("lint", (done) => {
     pump([
         gulp.src(["./src/*.ts", "./src/**/*.ts", "./test/**/*.ts", "./test/*.ts"]),
@@ -36,30 +65,7 @@ gulp.task("compile", (done) => {
 });
 
 gulp.task("test", (done) => {
-
-    const child = cp.spawn("node", ["./node_modules/vscode/bin/test"], {
-        cwd: __dirname
-    });
-
-    child.stdout.on("data", (data) => {
-        gutil.log(data.toString().trim());
-    });
-
-    child.stderr.on("data", (data) => {
-        gutil.log(gutil.colors.red(data.toString().trim()));
-    });
-
-    child.on("error", (error) => {
-        gutil.log(gutil.colors.red(error));
-    });
-
-    child.on("exit", (code) => {
-        if (code === 0) {
-            done();
-        } else {
-            done(code);
-        }
-    });
+    spawn("node", ["./node_modules/vscode/bin/test"], done);
 });
 
 gulp.task('cover:enable', (done) => {

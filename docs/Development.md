@@ -32,10 +32,12 @@ Read more about vsce [here](https://code.visualstudio.com/docs/extensions/publis
 To build the extension clone the repository, change to the root directory and run:
 
 ```bash
+npm install
+
 gulp build
 ```
 
-This will clean all artifacts and call the typescript compiler.
+This will download all dependencies, clean all artifacts and call the typescript compiler.
 
 ## Run
 

@@ -71,7 +71,7 @@
                 "impex.editor.columnHighlighting.enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enables the column highlighting in impex files",
+                    "description": "Enables/Disables the column highlighting in impex files",
                     "scope": "window"
                 }
             }

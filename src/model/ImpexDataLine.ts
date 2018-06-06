@@ -88,6 +88,7 @@ export class ImpexDataLine extends ImpexLine {
 
             // add 1 to end position if start and end are the same
             // and it is not the last charachter on the line
+            // to mark the following semicolon
             if (startPosition === endPosition &&
                 (endPosition + 1) <= this.text.length) {
                 endPosition = endPosition + 1;
@@ -116,6 +117,6 @@ export class ImpexDataLine extends ImpexLine {
         }
 
         // will never be hit
-        return 0;
+        return -1;
     }
 }

@@ -8,4 +8,4 @@ List of all configuration values
 
 Key|Values|Default|Description
 ---|------|-------|-----------
-`impex.editor.columnHighlighting.enabled`|`true` or `false`|`false`|enables the column highlighting
+`impex.editor.columnHighlighting.enabled`|`true` or `false`|`true`|enables/disables the column highlighting

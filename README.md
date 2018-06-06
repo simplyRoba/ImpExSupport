@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/simplyRoba/ImpExSupport.svg)](https://greenkeeper.io/)
 [![Travis branch](https://img.shields.io/travis/simplyRoba/ImpExSupport/master.svg)](https://travis-ci.org/simplyRoba/ImpExSupport)
+[![Codecov](https://img.shields.io/codecov/c/github/simplyRoba/ImpExSupport/master.svg)](https://codecov.io/gh/simplyRoba/ImpExSupport)
 [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/simplyRoba.impex-support.svg)](https://marketplace.visualstudio.com/items?itemName=simplyRoba.impex-support)
 [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/d/simplyRoba.impex-support.svg)](https://marketplace.visualstudio.com/items?itemName=simplyRoba.impex-support)
 
@@ -11,9 +12,9 @@ Languages support for the SAP Hybris import/export language ImpEx.
 
 ## Features
 
-* rudimental syntax highlighting.
-* some [snippets](docs/Snippets.md) for header keywords and modifier
-* column highlighting (experimental) disabled by default see [here](docs/Configuration.md#columnhighlighting) how to enable it
+* Rudimental syntax highlighting.
+* Some [snippets](docs/Snippets.md) for header keywords and modifier.
+* Column highlighting - you do not want it? See [here](docs/Configuration.md#columnhighlighting) how to disable it.
 
 ![columnhighlighting_preview](/images/columnhighlighting_preview.gif)
 

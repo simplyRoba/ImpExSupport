@@ -5,6 +5,17 @@
 * column multicursor
 * shrink modifier for better readability
 
+## [0.2.5] - 2018-06-06
+
+## Changed
+
+* column highlighting seems to work properly - its enabled by default now
+* migrated to gulp v4
+
+## Security
+
+* a lot under the hood changes and test automation (a step further to a complete automated deployment process)
+
 ## [0.2.4] - 2018-05-01
 
 ## Fixed

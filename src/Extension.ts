@@ -3,7 +3,6 @@ import { ExtensionContext } from "vscode";
 import { ColumnHighlighter } from "./editor/ColumnHighlighter";
 import { SeperatorHighlighter } from "./editor/SeperatorHighlighter";
 
-
 // this method is called when your extension is activated. activation is
 // controlled by the activation events defined in package.json
 export function activate(ctx: ExtensionContext) {

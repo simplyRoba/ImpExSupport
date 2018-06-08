@@ -1,55 +1,55 @@
 # Change Log
 
-## [Unreleased]
+### [Unreleased]
 
 * column multicursor
 * shrink modifier for better readability
 
 ## [0.2.5] - 2018-06-06
 
-## Changed
+### Changed
 
 * column highlighting seems to work properly - its enabled by default now
 * migrated to gulp v4
 
-## Security
+### Security
 
 * a lot under the hood changes and test automation (a step further to a complete automated deployment process)
 
 ## [0.2.4] - 2018-05-01
 
-## Fixed
+### Fixed
 
 * fixed the parsing of strings that are side by side #20
 * fixed a bug where the last column was not recognized 
 
 ## [0.2.3] - 2018-04-28
 
-## Fixed
+### Fixed
 
 * fixed the parsing of strings #8
 
 ## [0.2.2] - 2018-04-19
 
-## Fixed
+### Fixed
 
 * some small improvments
 
 ## [0.2.1] - 2018-04-16
 
-## Fixed
+### Fixed
 
 * remove syntax highlightng of single quotes #7
 * comments are only at start of a line #6
 
 ## [0.2.0] - 2018-04-15
 
-## Added
+### Added
 
 * higlight the data lines whne clicking on a header column
 * highlight the next semicolon if possible on an empty column
 
-## Fixed
+### Fixed
 
 * remove column highlighting on selections
 * fixed an error where lines containing only semicolons was not recognized correctly

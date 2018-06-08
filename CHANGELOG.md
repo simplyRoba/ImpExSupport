@@ -5,6 +5,12 @@
 * column multicursor
 * shrink modifier for better readability
 
+## [0.2.6] - 2018-xx-xx
+
+### Fixed
+
+* removed a trailing comma in language configuration [#36](https://github.com/simplyRoba/ImpExSupport/issues/36)
+
 ## [0.2.5] - 2018-06-06
 
 ### Changed
@@ -20,14 +26,14 @@
 
 ### Fixed
 
-* fixed the parsing of strings that are side by side #20
+* fixed the parsing of strings that are side by side [#20](https://github.com/simplyRoba/ImpExSupport/issues/20)
 * fixed a bug where the last column was not recognized 
 
 ## [0.2.3] - 2018-04-28
 
 ### Fixed
 
-* fixed the parsing of strings #8
+* fixed the parsing of strings [#8](https://github.com/simplyRoba/ImpExSupport/issues/8)
 
 ## [0.2.2] - 2018-04-19
 
@@ -39,8 +45,8 @@
 
 ### Fixed
 
-* remove syntax highlightng of single quotes #7
-* comments are only at start of a line #6
+* remove syntax highlightng of single quotes [#7](https://github.com/simplyRoba/ImpExSupport/issues/7)
+* comments are only at start of a line [#6](https://github.com/simplyRoba/ImpExSupport/issues/6)
 
 ## [0.2.0] - 2018-04-15
 

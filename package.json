@@ -87,7 +87,7 @@
     },
     "devDependencies": {
         "@types/chai": "4.1.4",
-        "@types/mocha": "5.2.2",
+        "@types/mocha": "5.2.3",
         "@types/node": "10.3.4",
         "chai": "4.1.2",
         "decache": "4.4.0",

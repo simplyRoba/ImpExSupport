@@ -83,7 +83,7 @@
         "test": "gulp test"
     },
     "dependencies": {
-        "vscode": "1.1.22"
+        "vscode": "1.1.23"
     },
     "devDependencies": {
         "@types/chai": "4.1.4",

@@ -90,7 +90,7 @@
         "decache": "4.5.1",
         "del": "4.1.1",
         "gulp": "4.0.1",
-        "gulp-json-editor": "2.5.1",
+        "gulp-json-editor": "2.5.2",
         "gulp-sourcemaps": "2.6.5",
         "gulp-tslint": "8.1.4",
         "gulp-typescript": "5.0.1",
